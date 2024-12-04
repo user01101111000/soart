@@ -1,0 +1,46 @@
+@use "../utils/mixins" as *;
+
+.section_b {
+
+  place-items: center;
+
+  .section_b_content {
+    align-items: start;
+
+    text-align: left;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 1rem;
+
+
+    h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+    }
+
+    p {
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
+      line-height: 1.2;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: white;
+      border: 1px solid #373737;
+      color: #373737;
+      cursor: pointer;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
+    }
+
+
+    @include respond(tab-port) {
+      text-align: center;
+      align-items: center !important;
+    }
+  }
+
+}

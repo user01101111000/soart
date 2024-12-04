@@ -1,0 +1,209 @@
+@use "../utils/mixins" as *;
+
+:root {
+  font-family: "Cormorant Garamond", serif;
+}
+
+
+.layout {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+
+  background-color: rgb(250, 250, 250);
+}
+
+header {
+  width: 100%;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+  backdrop-filter: blur(20px);
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  padding: 1.5rem 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  .logo_title {
+    cursor: pointer;
+
+    span {
+      color: black;
+      font-size: 2rem;
+
+      &:last-child {
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+    }
+
+    @include respond(phone) {
+      span {
+        font-size: 1.5rem;
+
+        &:last-child {
+          font-size: 2rem;
+        }
+      }
+
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .close_menu {
+      display: none;
+    }
+
+    @include respond(phone) {
+      position: fixed;
+      inset: 0;
+      height: 100vh;
+      width: 100%;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+
+      z-index: 1000;
+
+      a {
+        font-size: 2rem;
+      }
+      .close_menu {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .nav_buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .hamburger_menu {
+      display: none;
+
+      @include respond(phone) {
+        display: block;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 1rem 5%;
+  }
+
+}
+
+footer {
+  padding: 2rem 5%;
+  background-color: rgb(250, 250, 250);
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  .logo_title {
+    cursor: pointer;
+
+    span {
+      color: black;
+      font-size: 2rem;
+
+      &:last-child {
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+    }
+
+    @include respond(phone) {
+      span {
+        font-size: 1.5rem;
+
+        &:last-child {
+          font-size: 2rem;
+        }
+      }
+
+    }
+  }
+
+
+  .footer_menu {
+    display: flex;
+    gap: 1rem;
+
+    justify-content: center;
+
+
+    flex-wrap: wrap;
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+  }
+
+  .footer_social_links {
+
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    a{
+      color: black;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 1rem 5%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
