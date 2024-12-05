@@ -1,7 +1,11 @@
 import {FC, JSX} from "react";
 import {bg_video} from "../../../utils/assets.tsx";
+import {NavigateFunction, useNavigate} from "react-router-dom";
 
 const Main: FC = (): JSX.Element => {
+
+    const navigate: NavigateFunction = useNavigate();
+
     return <section className={"main_section"}>
 
         <video autoPlay loop muted src={bg_video}></video>
@@ -14,7 +18,10 @@ const Main: FC = (): JSX.Element => {
                 imaginative talents, which are expected to evoke a worthwhile experience, generally through an
                 expression of emotional power, conceptual ideas, beauty, and/or technical proficiency.</p>
 
-            <button>Explore</button>
+            <button onClick={(): void => {
+                navigate("/explore");
+            }}>Explore
+            </button>
 
         </div>
 

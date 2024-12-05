@@ -6,6 +6,8 @@
 
 // containers
 @forward "containers/home_container";
+@forward "containers/explore_container";
+@forward "containers/not_found_container";
 
 // components
 @forward "components/main_section";
