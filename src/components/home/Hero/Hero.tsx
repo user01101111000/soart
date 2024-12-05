@@ -3,8 +3,9 @@ import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import ImageComponent from "../../ui/ImageComponent.tsx";
 import {statue_1, statue_bg} from "../../../utils/assets.tsx"
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin([ScrollTrigger, useGSAP]);
 
 const Hero: FC = (): JSX.Element => {
 
@@ -16,14 +17,24 @@ const Hero: FC = (): JSX.Element => {
     useGSAP((): void => {
 
         gsap.fromTo(img1.current, {scale: 1, rotate: -45, y: 100}, {
+            scrollTrigger: {
+                trigger: ".statue",
+            },
             rotate: 0,
             y: 0,
             scale: 1.5,
             duration: 2,
-            ease: "power1.inOut"
         });
 
-        gsap.to(img2.current, {scale: 2.5, duration: 2, ease: "power1.inOut"});
+        gsap.fromTo(img2.current, {scale: 1}, {
+            scrollTrigger: {
+                trigger: ".statue",
+            },
+            scale: 2.5,
+            duration: 2,
+        });
+
+
     })
 
     return <article className={"hero"}>

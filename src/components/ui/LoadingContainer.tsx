@@ -1,4 +1,5 @@
 import {FC, JSX} from "react";
+import {loading_gif} from "../../utils/assets.tsx"
 
 const LoadingContainer: FC = (): JSX.Element => {
     return <div className={"loading_container"}
@@ -14,7 +15,7 @@ const LoadingContainer: FC = (): JSX.Element => {
                     top: 0,
                     left: 0,
                 }}>
-        <img src="/src/assets/gif/loading.gif" alt="loading" loading={"lazy"} width={"500px"} height={"auto"}/>
+        <img src={loading_gif} alt="loading" loading={"lazy"} width={"500px"} height={"auto"}/>
     </div>
 
 }
