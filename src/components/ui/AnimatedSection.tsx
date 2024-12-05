@@ -1,15 +1,10 @@
 import {FC, JSX, MutableRefObject, useRef} from "react";
-import * as React from "react";
-
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
+import {AnimatedSectionProps} from "../../types/component/component_types.ts";
 
 gsap.registerPlugin(useGSAP);
 
-type AnimatedSectionProps = {
-    class_name?: string,
-    children?: React.ReactNode
-}
 
 const AnimatedSection: FC<AnimatedSectionProps> = (props: AnimatedSectionProps): JSX.Element => {
 

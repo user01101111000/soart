@@ -5,7 +5,7 @@ import {ResponseArtworks} from "../../types/data/data_types.ts";
 const useGetInfiniteArtworks: () => UseInfiniteQueryResult<{
     pages: ResponseArtworks[],
     pageParam: number[]
-}, unknown> = (): UseInfiniteQueryResult<{ pages: ResponseArtworks[], pageParam: number[]}, unknown> => {
+}, unknown> = (): UseInfiniteQueryResult<{ pages: ResponseArtworks[], pageParam: number[] }, unknown> => {
     return useInfiniteQuery({
         queryKey: ['artworks'],
         queryFn: get_artworks,

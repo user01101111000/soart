@@ -1,7 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import routes from "../routes/routes.tsx";
 
-
 export default createBrowserRouter(routes, {
         future: {
             v7_partialHydration: true,

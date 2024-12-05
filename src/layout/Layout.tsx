@@ -4,8 +4,6 @@ import NavBar from "./components/NavBar/NavBar.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import LoadingContainer from "../components/ui/LoadingContainer.tsx";
 
-
-
 const Layout: FC = (): JSX.Element => {
     return <main className={"layout"}>
         <NavBar/>

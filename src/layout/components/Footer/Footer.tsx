@@ -21,7 +21,7 @@ const Footer: FC = (): JSX.Element => {
         <div className={"footer_social_links"}>
 
 
-            <a href="https://github.com/soart-dev" target="_blank" rel="noreferrer">
+            <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">
                 <FaGithub/>
             </a>
 

@@ -3,11 +3,7 @@ import Layout from "../../layout/Layout.tsx";
 import Home from "../../pages/home/Home.tsx";
 import Explore from "../../pages/explore/Explore.tsx";
 import NotFound from "../../pages/not_found/NotFound.tsx";
-
-
-// const Layout: LazyExoticComponent<FC> = React.lazy((): Promise<{ default: FC }> => import("../../layout/Layout.tsx"));
-// const Home: LazyExoticComponent<FC> = React.lazy((): Promise<{ default: FC }> => import("../../pages/home/Home.tsx"));
-
+import Detail from "../../pages/detail/Detail.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -19,8 +15,12 @@ const routes: RouteObject[] = [
                 element: <Home/>
             },
             {
-                path: "/explore",
+                path: "explore",
                 element: <Explore/>
+            },
+            {
+                path: "explore/:id",
+                element: <Detail/>
             },
             {
                 path: "*",

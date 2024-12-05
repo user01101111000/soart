@@ -3,6 +3,7 @@ import useGetInfiniteArtworks from "../../hooks/service/useGetInfiniteArtworks.t
 import {Datum, ResponseArtworks} from "../../types/data/data_types.ts";
 import {loading_2} from "../../utils/assets.tsx"
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
+import ArtCard from "../../components/explore/ArtCard.tsx";
 
 const ExploreContainer: FC = (): JSX.Element => {
 
@@ -16,24 +17,11 @@ const ExploreContainer: FC = (): JSX.Element => {
     } = useGetInfiniteArtworks();
 
 
-    const artworks: Datum[] | undefined = data?.pages.map((x: ResponseArtworks): Datum[] => x.data).flat().filter(x => x.image_id);
+    const artworks: Datum[] | undefined = data?.pages.map((x: ResponseArtworks): Datum[] => x.data).flat();
 
 
     const artwork_components: JSX.Element[] | undefined = artworks?.map((artwork: Datum): JSX.Element => {
-        return <div className={"artwork_box"} key={artwork.id}>
-            <figure>
-                <img src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-                     alt={artwork.thumbnail.alt_text}
-                     loading={"lazy"}/>
-            </figure>
-            <h1>{artwork.title}</h1>
-            <p>{artwork.artist_display}</p>
-            <div className={"category_titles"}>
-                {artwork.category_titles.map((category_title: string): JSX.Element => {
-                    return <span key={category_title}>{category_title}</span>
-                })}
-            </div>
-        </div>
+        return <ArtCard key={artwork.id} artwork={artwork}/>
     });
 
     return <AnimatedSection class_name={"explore_container"}>

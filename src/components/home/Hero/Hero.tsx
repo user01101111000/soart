@@ -1,7 +1,6 @@
 import {FC, JSX, MutableRefObject, useRef,} from "react";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
-import ImageComponent from "../../ui/ImageComponent.tsx";
 import {statue_1, statue_bg} from "../../../utils/assets.tsx"
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
@@ -48,9 +47,8 @@ const Hero: FC = (): JSX.Element => {
 
         <figure
             className={"statue"}>
-            <ImageComponent alt_text={"statue"} src_text={statue_1} ref_text={img1}/>
-            <ImageComponent src_text={statue_bg} alt_text={"statue_bg"} class_name_text={"statue_bg"}
-                            ref_text={img2}/>
+            <img src={statue_1} alt={"statue"} ref={img1}/>
+            <img src={statue_bg} alt={"statue_bg"} ref={img2} className={"statue_bg"}/>
         </figure>
 
 

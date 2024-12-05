@@ -1,10 +1,6 @@
 import {FC, JSX} from "react";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import * as React from "react";
-
-type ProvidersProps = {
-    children: React.ReactNode
-}
+import {ProvidersProps} from "../types/component/component_types.ts";
 
 const query_client: QueryClient = new QueryClient({
     defaultOptions: {
