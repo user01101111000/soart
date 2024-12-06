@@ -1,5 +1,89 @@
-.detail_container{
+@use "../utils/mixins" as *;
+
+.detail_container {
   width: 100%;
   padding: 2rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .art_title {
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .detail_box {
+    width: 100%;
+    height: 100%;
+
+
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 0.6fr;
+    grid-template-rows: auto;
+
+    grid-template-areas:
+            "a b c";
+
+
+    .detail_box_left_side {
+      grid-area: a;
+
+    }
+
+    .detail_box_main_side {
+      grid-area: b;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        figcaption {
+          text-align: center;
+          font-weight: 500;
+          font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+          line-height: 1.2;
+        }
+      }
+
+      .art_text {
+        font-size: clamp(1rem, 1.2vw, 1.3rem);
+        line-height: 1.4;
+
+        span {
+          font-weight: bold;
+          font-style: italic;
+        }
+      }
+
+
+    }
+
+    .detail_box_right_side {
+      grid-area: c;
+    }
+
+    @include respond(tab-land) {
+      grid-template-columns: 1fr 0.6fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+                "a c"
+                "b c";
+    }
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr;
+      grid-template-areas:
+                "a"
+                "c"
+                "b";
+    }
+
+  }
 
 }

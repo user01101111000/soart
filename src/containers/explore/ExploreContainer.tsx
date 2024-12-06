@@ -1,9 +1,9 @@
 import {FC, JSX} from "react";
 import useGetInfiniteArtworks from "../../hooks/service/useGetInfiniteArtworks.tsx";
 import {Datum, ResponseArtworks} from "../../types/data/data_types.ts";
-import {loading_2} from "../../utils/assets.tsx"
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
 import ArtCard from "../../components/explore/ArtCard.tsx";
+import {loading_2} from "../../utils/assets.tsx";
 
 const ExploreContainer: FC = (): JSX.Element => {
 
@@ -34,11 +34,8 @@ const ExploreContainer: FC = (): JSX.Element => {
 
         {status == "pending" ?
             <div className={"loading_container"}><img src={loading_2} alt={"loading"} width={"18px"} height={"auto"}/>
-            </div> : status == "error" ?
-                <h1>Error</h1> : null}
-
-        {status == "pending" ? <h1>Loading...</h1> : status == "error" ? <h1>Error</h1> :
-            <div className={"arts_container"}>{artwork_components}</div>}
+            </div> : status == "error" ? <h1>Error</h1> :
+                <div className={"arts_container"}>{artwork_components}</div>}
 
 
         {
