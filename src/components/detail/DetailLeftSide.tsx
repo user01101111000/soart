@@ -5,11 +5,12 @@ import {MdDownload, MdLocationOn} from "react-icons/md";
 import {Tooltip} from "react-tooltip";
 import {LuPalette} from "react-icons/lu";
 import {FaRegCalendarAlt} from "react-icons/fa";
+import {saveAs} from 'file-saver';
+
 
 type DetailLeftSideProps = {
     data: IArtwork
 }
-
 
 const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JSX.Element => {
     return <div className={"detail_box_left_side"}>
@@ -21,8 +22,9 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
             </div>
 
             <div data-tooltip-id={"download"} data-tooltip-content={"Download image"}
-                 className={"detail_icon_wrapper"} onClick={(): void => {
-                console.log(`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`)
+                 className={"detail_icon_wrapper"} onClick={async (): Promise<void> => {
+
+                saveAs(`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`, props.data.data.title + ".jpg")
             }}>
                 <MdDownload className={"icon download"}/>
             </div>
