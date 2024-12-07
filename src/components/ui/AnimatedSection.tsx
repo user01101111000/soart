@@ -13,7 +13,7 @@ const AnimatedSection: FC<AnimatedSectionProps> = (props: AnimatedSectionProps):
     useGSAP((): void => {
         gsap.fromTo(con.current, {opacity: 0}, {
             opacity: 1,
-            duration: 0.5,
+            duration: 0.8,
         })
     })
 

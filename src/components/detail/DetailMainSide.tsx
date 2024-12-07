@@ -74,6 +74,14 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         </details>}
 
 
+        <hr/>
+
+        <div className={"art_description end_of_art"}>Object information is a work in progress and may be updated as new
+            research findings emerge. To help
+            improve this record, please email collections@artic.edu. Information about image downloads and licensing is
+            available here.
+        </div>
+
     </div>
 }
 

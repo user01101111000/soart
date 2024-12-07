@@ -149,6 +149,8 @@
           cursor: pointer;
           line-height: 1.5;
 
+          user-select: none;
+
         }
 
         ul {
@@ -186,6 +188,12 @@
           color: #950000;
           text-decoration: underline;
         }
+      }
+
+
+      .end_of_art {
+        opacity: 0.5;
+        font-size: clamp(0.8rem, 1.2vw, 1rem);
       }
 
 
