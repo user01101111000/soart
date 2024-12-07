@@ -7,8 +7,18 @@ type DetailMainSideProps = {
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
 
+    const pub_hist_elements: JSX.Element[] = props?.data?.data?.publication_history ? props.data.data.publication_history.split("\n\n").map((el: string, index: number): JSX.Element =>
+        <li key={index} dangerouslySetInnerHTML={{__html: el}}/>) : [];
 
-    console.log(props.data.data.description);
+    const exh_hist_elements: JSX.Element[] = props?.data?.data?.exhibition_history ? props.data.data.exhibition_history.split("\n\n").map((el: string, index: number): JSX.Element =>
+        <li key={index} dangerouslySetInnerHTML={{__html: el}}/>) : [];
+
+
+    const multimedia_res: JSX.Element[] = props?.data?.data?.sound_ids ? props.data.data.sound_ids.map((el: string, index: number): JSX.Element =>
+        <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
+
+    const educational_res: JSX.Element[] = props?.data?.data?.document_ids ? props.data.data.document_ids.map((el: string, index: number): JSX.Element =>
+        <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
 
 
     return <div className={"detail_box_main_side"}>
@@ -22,15 +32,46 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         </figure>
 
 
-        {props?.data?.data?.description && <div className={"art_description art_text"}
-                                                dangerouslySetInnerHTML={{__html: props.data.data.description as TrustedHTML}}/>}
-
-        {props?.data?.data?.publication_history && <div className={"art_publication art_text"}
-                                                        dangerouslySetInnerHTML={{__html: "<span>Publication history : </span>" + props.data?.data.publication_history}}/>}
+        {props?.data?.data?.description && <div className={"art_description"}
+                                                dangerouslySetInnerHTML={{__html: props.data.data.description}}/>}
 
 
-        {props?.data?.data?.exhibition_history && <div className={"art_exhibition art_text"}
-                                                       dangerouslySetInnerHTML={{__html: "<span>Exhibition history : </span>" + props.data?.data.exhibition_history}}/>}
+        {pub_hist_elements.length > 0 && <details>
+            <summary>Publication history</summary>
+            <ul>
+                {pub_hist_elements}
+            </ul>
+        </details>}
+
+        {exh_hist_elements.length > 0 && <details>
+            <summary>Exhibition history</summary>
+            <ul>
+                {exh_hist_elements}
+            </ul>
+        </details>}
+
+        {props?.data?.data?.provenance_text &&
+            <details>
+                <summary>Provenance</summary>
+
+                <ul>
+                    <li dangerouslySetInnerHTML={{__html: props.data.data.provenance_text}}/>
+                </ul>
+            </details>}
+
+        {multimedia_res.length > 0 && <details>
+            <summary>Multimedia</summary>
+            <ul>
+                {multimedia_res}
+            </ul>
+        </details>}
+
+        {educational_res.length > 0 && <details>
+            <summary>Educational resources</summary>
+            <ul>
+                {educational_res}
+            </ul>
+        </details>}
 
 
     </div>

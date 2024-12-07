@@ -1,10 +1,10 @@
 export interface IArtwork {
     data: Data;
     info: Info;
-    config: IArtworkConfig;
+    config: Config;
 }
 
-export interface IArtworkConfig {
+export interface Config {
     iiif_url: string;
     website_url: string;
 }
@@ -32,12 +32,12 @@ export interface Data {
     dimensions: string;
     dimensions_detail: DimensionsDetail[];
     medium_display: string;
-    inscriptions: null;
+    inscriptions: string;
     credit_line: string;
-    catalogue_display: null;
-    publication_history: null;
-    exhibition_history: null;
-    provenance_text: null;
+    catalogue_display: string;
+    publication_history: string | null;
+    exhibition_history: string | null;
+    provenance_text: string;
     edition: null;
     publishing_verification_level: string;
     internal_department_id: number;
@@ -57,8 +57,8 @@ export interface Data {
     latlon: string;
     is_on_view: boolean;
     on_loan_display: null;
-    gallery_title: null;
-    gallery_id: null;
+    gallery_title: string;
+    gallery_id: number;
     nomisma_id: null;
     artwork_type_title: string;
     artwork_type_id: number;
@@ -74,7 +74,7 @@ export interface Data {
     term_titles: string[];
     style_id: string;
     style_title: string;
-    alt_style_ids: any[];
+    alt_style_ids: string[];
     style_ids: string[];
     style_titles: string[];
     classification_id: string;
@@ -91,16 +91,16 @@ export interface Data {
     material_ids: string[];
     material_titles: string[];
     technique_id: string;
-    alt_technique_ids: any[];
+    alt_technique_ids: string[];
     technique_ids: string[];
     technique_titles: string[];
     theme_titles: string[];
     image_id: string;
-    alt_image_ids: any[];
+    alt_image_ids: string[];
     document_ids: string[];
-    sound_ids: any[];
+    sound_ids: string[];
     video_ids: any[];
-    text_ids: string[];
+    text_ids: any[];
     section_ids: any[];
     section_titles: any[];
     site_ids: any[];

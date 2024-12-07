@@ -59,9 +59,7 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
                     </div>
 
 
-                    {props.data.data.category_titles.map((category_title: string): JSX.Element => {
-                        return <span key={category_title}>{category_title}</span>
-                    })}
+                    <span>{props.data.data.category_titles.join(", ")}</span>
                 </div>}
 
 
