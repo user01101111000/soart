@@ -62,7 +62,7 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
             {props.data.data.category_titles.length != 0 &&
                 <div className={"detail_box_left_side_info_item category_titles"}>
                     <div>
-                        <BsTagFill className={"info_item_icon"}/> Tags :
+                        <BsTagFill className={"info_item_icon"}/> <h1>Tags : </h1>
                     </div>
 
 

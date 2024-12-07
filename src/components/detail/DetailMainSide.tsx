@@ -1,5 +1,8 @@
 import {FC, JSX} from "react";
 import {IArtwork} from "../../types/data/data_types_2.ts";
+import {PhotoProvider, PhotoView} from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 type DetailMainSideProps = {
     data: IArtwork
@@ -23,8 +26,13 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
 
     return <div className={"detail_box_main_side"}>
         <figure>
-            <img src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}
-                 alt={props.data?.data.thumbnail.alt_text}/>
+            <PhotoProvider>
+                <PhotoView src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}>
+                    <img src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}
+                         alt={props.data?.data.thumbnail.alt_text}/>
+                </PhotoView>
+            </PhotoProvider>
+
 
             <figcaption>
                 {props.data?.data.title}, {props.data?.data.artist_display}
