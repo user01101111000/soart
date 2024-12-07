@@ -1,14 +1,11 @@
 import {FC, JSX} from "react";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
+import Logo from "../../../components/ui/Logo.tsx";
 
 const Footer: FC = (): JSX.Element => {
     return <footer>
 
-        <div className={"logo_title"}>
-            <span>so</span>
-            <span>art</span>
-        </div>
-
+        <Logo/>
 
         <div className={"footer_menu"}>
             <a target={"_blank"} href={""}>Art</a>

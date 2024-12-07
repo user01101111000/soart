@@ -2,6 +2,7 @@ import {FC, JSX, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
+import Logo from "../../../components/ui/Logo.tsx";
 
 
 const NavBar: FC = (): JSX.Element => {
@@ -10,11 +11,7 @@ const NavBar: FC = (): JSX.Element => {
 
 
     return <header>
-        <div className={"logo_title"}>
-            <span>so</span>
-            <span>art</span>
-        </div>
-
+        <Logo/>
 
         {showMenu &&
             <nav>

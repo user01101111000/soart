@@ -6,6 +6,7 @@ import {Tooltip} from "react-tooltip";
 import {LuPalette} from "react-icons/lu";
 import {FaRegCalendarAlt} from "react-icons/fa";
 import {saveAs} from 'file-saver';
+import {BsTagFill} from "react-icons/bs";
 
 
 type DetailLeftSideProps = {
@@ -50,6 +51,18 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
             {props?.data?.data?.artist_display && <div className={"detail_box_left_side_info_item"}>
                 <FaRegCalendarAlt className={"info_item_icon"}/> <h1>{props.data?.data.artist_display}</h1>
             </div>}
+
+            {props.data.data.category_titles.length != 0 &&
+                <div className={"detail_box_left_side_info_item category_titles"}>
+                    <div>
+                        <BsTagFill className={"info_item_icon"}/> Tags :
+                    </div>
+
+
+                    {props.data.data.category_titles.map((category_title: string): JSX.Element => {
+                        return <span key={category_title}>{category_title}</span>
+                    })}
+                </div>}
 
 
         </div>

@@ -27,9 +27,9 @@ const ExploreContainer: FC = (): JSX.Element => {
     return <AnimatedSection class_name={"explore_container"}>
 
         <div className={"explore_container_header"}>
-            <h1>Explore new arts.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et</p>
+            <h1>Explore new artworks.</h1>
+            <p>While exploring new artworks, be careful not to get lost in this sea and don't forget to add your own
+                experiences.</p>
         </div>
 
         {status == "pending" ?

@@ -6,6 +6,11 @@ type DetailMainSideProps = {
 }
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
+
+
+    console.log(props.data.data.description);
+
+
     return <div className={"detail_box_main_side"}>
         <figure>
             <img src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}
@@ -18,7 +23,7 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
 
 
         {props?.data?.data?.description && <div className={"art_description art_text"}
-                                                dangerouslySetInnerHTML={{__html: props.data.data.description}}/>}
+                                                dangerouslySetInnerHTML={{__html: props.data.data.description as TrustedHTML}}/>}
 
         {props?.data?.data?.publication_history && <div className={"art_publication art_text"}
                                                         dangerouslySetInnerHTML={{__html: "<span>Publication history : </span>" + props.data?.data.publication_history}}/>}

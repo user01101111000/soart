@@ -2,7 +2,6 @@ import {FC, JSX} from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
 import {ArtCardProps} from "../../types/component/component_types.ts";
 
-
 const ArtCard: FC<ArtCardProps> = (props: ArtCardProps): JSX.Element => {
 
     const navigate: NavigateFunction = useNavigate();
@@ -18,11 +17,6 @@ const ArtCard: FC<ArtCardProps> = (props: ArtCardProps): JSX.Element => {
         </figure>
         <h1>{props.artwork.title}</h1>
         <p>{props.artwork.artist_display}</p>
-        <div className={"category_titles"}>
-            {props.artwork.category_titles.map((category_title: string): JSX.Element => {
-                return <span key={category_title}>{category_title}</span>
-            })}
-        </div>
     </div>
 }
 
