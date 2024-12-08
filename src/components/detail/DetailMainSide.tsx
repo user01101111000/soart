@@ -28,8 +28,14 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         <figure>
             <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}>
-                    <img src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}
-                         alt={props.data?.data.thumbnail.alt_text}/>
+                    <div className={"figure_2"}>
+                        <img src={`https://www.artic.edu/iiif/2/${props.data?.data.image_id}/full/843,/0/default.jpg`}
+                             alt={props.data?.data.thumbnail.alt_text}/>
+
+                        <div className={"figure_inner_wrapper"}>
+                            Click to view
+                        </div>
+                    </div>
                 </PhotoView>
             </PhotoProvider>
 

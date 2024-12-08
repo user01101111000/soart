@@ -61,13 +61,12 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
 
             {props.data.data.category_titles.length != 0 &&
                 <div className={"detail_box_left_side_info_item category_titles"}>
-                    <div>
-                        <BsTagFill className={"info_item_icon"}/> <h1>Tags : </h1>
-                    </div>
+                    <BsTagFill className={"info_item_icon"}/>
 
+                    {props?.data?.data?.category_titles.map((x: string): JSX.Element => (<span key={x}>{x}</span>))}
 
-                    <span>{props.data.data.category_titles.join(", ")}</span>
-                </div>}
+                </div>
+            }
 
 
         </div>

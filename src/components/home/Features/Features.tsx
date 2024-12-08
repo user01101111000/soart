@@ -13,9 +13,6 @@ const Features: FC = (): JSX.Element => {
         gsap.fromTo(".features", {opacity: 0}, {
             scrollTrigger: {
                 trigger: ".feature_box",
-                // start: "top center",
-                // end: "bottom center",
-                // markers: true
             },
             opacity: 1,
             duration: 2
