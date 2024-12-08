@@ -1,10 +1,5 @@
 import {FC, JSX} from "react";
-import {IArtwork} from "../../types/data/data_types_2.ts";
-
-type DetailRightSideProps = {
-    data: IArtwork
-}
-
+import {DetailRightSideProps} from "../../types/component/component_types.ts";
 
 const DetailRightSide: FC<DetailRightSideProps> = (props: DetailRightSideProps): JSX.Element => {
     return <div className={"detail_box_right_side"}>

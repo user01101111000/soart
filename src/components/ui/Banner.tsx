@@ -1,17 +1,9 @@
 import {FC, JSX} from "react";
-import {motion} from "motion/react"
+import {BannerProps} from "../../types/component/component_types.ts";
 
-type BannerProps = {
-    title: string,
-    subtitle: string,
-    button_text: string,
-    img_link: string
-}
 
 const Banner: FC<BannerProps> = (props: BannerProps): JSX.Element => {
-    return <motion.div initial={{opacity: 0, scale: 0.9}} whileInView={{opacity: 1, scale: 1}}
-                       transition={{duration: 1, type: "spring", delay: 0.1}} viewport={{once: true}}
-                       className={"banner"}>
+    return <div className={"banner"}>
 
         <img src={props.img_link} alt="banner" loading={"lazy"}/>
 
@@ -22,7 +14,7 @@ const Banner: FC<BannerProps> = (props: BannerProps): JSX.Element => {
 
         <button>{props.button_text}</button>
 
-    </motion.div>
+    </div>
 }
 
 export default Banner;

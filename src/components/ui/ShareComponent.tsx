@@ -1,4 +1,4 @@
-import {Dispatch, FC, JSX, SetStateAction, useEffect} from "react";
+import {FC, JSX, useEffect} from "react";
 import {IoMdClose} from "react-icons/io";
 import {
     WhatsappShareButton,
@@ -28,12 +28,8 @@ import {
 } from "react-share"
 import {LuLink} from "react-icons/lu";
 import {motion} from "motion/react"
+import {ShareComponentProps} from "../../types/component/component_types.ts";
 
-
-type ShareComponentProps = {
-    setShowShare: Dispatch<SetStateAction<boolean>>,
-    showShare: boolean,
-};
 
 const ShareComponent: FC<ShareComponentProps> = (props: ShareComponentProps): JSX.Element => {
 

@@ -1,12 +1,9 @@
 import {FC, JSX} from "react";
-import {IArtwork} from "../../types/data/data_types_2.ts";
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import {DetailMainSideProps} from "../../types/component/component_types.ts";
 
 
-type DetailMainSideProps = {
-    data: IArtwork
-}
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
 

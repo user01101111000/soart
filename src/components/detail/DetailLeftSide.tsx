@@ -1,5 +1,4 @@
 import {FC, JSX, useState} from "react";
-import {IArtwork} from "../../types/data/data_types_2.ts";
 import {IoShareSocialSharp} from "react-icons/io5";
 import {MdDownload, MdLocationOn} from "react-icons/md";
 import {Tooltip} from "react-tooltip";
@@ -11,10 +10,7 @@ import {RxDimensions} from "react-icons/rx";
 import art_time_display from "../../utils/art_time_display.ts";
 import ShareComponent from "../ui/ShareComponent.tsx";
 import {AnimatePresence} from "motion/react";
-
-type DetailLeftSideProps = {
-    data: IArtwork
-}
+import {DetailLeftSideProps} from "../../types/component/component_types.ts";
 
 
 const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JSX.Element => {

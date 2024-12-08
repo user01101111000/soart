@@ -1,10 +1,6 @@
 import {FC, JSX} from "react";
-import {IArtwork} from "../../../types/data/data_types_2.ts";
 import {NavigateFunction, useNavigate} from "react-router-dom";
-
-type ExploreForHomeCardProps = {
-    data: IArtwork
-}
+import {ExploreForHomeCardProps} from "../../../types/component/component_types.ts";
 
 
 const ExploreForHomeCard: FC<ExploreForHomeCardProps> = (props: ExploreForHomeCardProps): JSX.Element => {
