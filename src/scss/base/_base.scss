@@ -22,7 +22,6 @@ header {
   background-color: rgb(250, 250, 250);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-
   backdrop-filter: blur(20px);
 
   position: sticky;
@@ -62,28 +61,12 @@ header {
     }
   }
 
-  .nav_1 {
-
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-
-    a {
-      color: black;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-
-  }
 
   nav {
 
     display: flex;
     align-items: center;
     gap: 1rem;
-
-    transform: translateX(0%);
 
 
     a {
@@ -100,20 +83,19 @@ header {
 
     @include respond(phone) {
       position: fixed;
-
       inset: 0;
-
-      transform: translateX(-100%);
 
       height: 100vh;
       width: 100%;
+
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 2rem;
-      background-color: rgba(255, 255, 255, 0.9);
 
-      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.95);
+
+      z-index: 900;
 
       a {
         font-size: 2rem;
@@ -128,7 +110,7 @@ header {
 
         font-size: 3rem;
       }
-      transform: translateX(-100%);
+
     }
   }
 

@@ -1,24 +1,12 @@
-import {FC, JSX, MutableRefObject, useRef} from "react";
-import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
+import {FC, JSX} from "react";
 import {AnimatedSectionProps} from "../../types/component/component_types.ts";
-
-gsap.registerPlugin(useGSAP);
+import {motion} from "motion/react"
 
 
 const AnimatedSection: FC<AnimatedSectionProps> = (props: AnimatedSectionProps): JSX.Element => {
 
-    const con: MutableRefObject<HTMLElement | null> = useRef(null);
-
-    useGSAP((): void => {
-        gsap.fromTo(con.current, {opacity: 0}, {
-            opacity: 1,
-            duration: 0.8,
-        })
-    })
-
-
-    return <section ref={con} className={props.class_name}>{props.children}</section>;
+    return <motion.section initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.1}}
+                           className={props.class_name}>{props.children}</motion.section>;
 }
 
 export default AnimatedSection;

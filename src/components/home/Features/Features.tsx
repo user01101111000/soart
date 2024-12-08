@@ -1,31 +1,19 @@
 import {FC, JSX} from "react";
-import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-
-
-gsap.registerPlugin(ScrollTrigger);
+import {motion} from "motion/react"
 
 const Features: FC = (): JSX.Element => {
 
-    useGSAP((): void => {
-
-        gsap.fromTo(".features", {opacity: 0}, {
-            scrollTrigger: {
-                trigger: ".feature_box",
-            },
-            opacity: 1,
-            duration: 2
-        })
-    })
 
     return <section className={"features"}>
-        <h1 className={"features_title"}>You can see it here.</h1>
+        <motion.h1 initial={{opacity: 0, scale: 0.9}} viewport={{once: true}} whileInView={{opacity: 1, scale: 1}}
+                   transition={{delay: 0.3, duration: 0.5}} className={"features_title"}>You can see it here.
+        </motion.h1>
 
 
         <div className={"features_container"}>
 
-            <div className={"feature_box"}>
+            <motion.div initial={{opacity: 0, scale: 0.9}} viewport={{once: true}} whileInView={{opacity: 1, scale: 1}}
+                        transition={{delay: 0.3, duration: 0.5}} className={"feature_box"}>
                 <h1>Minimalism</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -35,9 +23,10 @@ const Features: FC = (): JSX.Element => {
 
                 <a href="https://github.com/" target={"_blank"}>Learn More</a>
 
-            </div>
+            </motion.div>
 
-            <div className={"feature_box"}>
+            <motion.div initial={{opacity: 0, scale: 0.9}} viewport={{once: true}} whileInView={{opacity: 1, scale: 1}}
+                        transition={{delay: 0.4, duration: 0.5}} className={"feature_box"}>
                 <h1>Accessibility</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -47,9 +36,10 @@ const Features: FC = (): JSX.Element => {
 
                 <a href="https://github.com/" target={"_blank"}>Learn More</a>
 
-            </div>
+            </motion.div>
 
-            <div className={"feature_box"}>
+            <motion.div initial={{opacity: 0, scale: 0.9}} viewport={{once: true}} whileInView={{opacity: 1, scale: 1}}
+                        transition={{delay: 0.5, duration: 0.5}} className={"feature_box"}>
                 <h1>Quality</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -59,7 +49,7 @@ const Features: FC = (): JSX.Element => {
 
                 <a href="https://github.com/" target={"_blank"}>Learn More</a>
 
-            </div>
+            </motion.div>
 
         </div>
 

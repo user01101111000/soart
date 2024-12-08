@@ -1,43 +1,9 @@
-import {FC, JSX, MutableRefObject, useRef} from "react";
-import ImageComponent from "../../ui/ImageComponent.tsx";
-import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {FC, JSX} from "react";
 import {statue_3} from "../../../utils/assets.tsx"
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 
 const SectionB: FC = (): JSX.Element => {
 
-    const img_ref2: MutableRefObject<HTMLImageElement | null> = useRef<HTMLImageElement | null>(null);
-
-    useGSAP((): void => {
-
-        gsap.fromTo(img_ref2.current, {opacity: 0, x: 200, rotate: -45}, {
-            scrollTrigger: {
-                trigger: img_ref2.current,
-            },
-            delay: 0.5,
-            x: 0,
-            rotate: 0,
-            opacity: 1,
-            duration: 2
-        });
-
-        gsap.fromTo(".section_b_content", {opacity: 0, x: -200}, {
-            scrollTrigger: {
-                trigger: ".section_b_content",
-            },
-            delay: 0.5,
-            x: 0,
-            opacity: 1,
-            duration: 2
-        });
-
-
-    })
 
     return <section className={"section_a section_b"}>
 
@@ -55,7 +21,7 @@ const SectionB: FC = (): JSX.Element => {
         </div>
 
         <div className={"section_a_img_container section_b_img_container"}>
-            <ImageComponent alt_text={"statue_2"} src_text={statue_3} ref_text={img_ref2}/>
+            <img alt={"statue_2"} src={statue_3}/>
         </div>
 
     </section>

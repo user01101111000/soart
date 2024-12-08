@@ -1,4 +1,4 @@
-import {FC, JSX} from "react";
+import {FC, JSX, useState} from "react";
 import {IArtwork} from "../../types/data/data_types_2.ts";
 import {IoShareSocialSharp} from "react-icons/io5";
 import {MdDownload, MdLocationOn} from "react-icons/md";
@@ -9,18 +9,33 @@ import {saveAs} from 'file-saver';
 import {BsTagFill} from "react-icons/bs";
 import {RxDimensions} from "react-icons/rx";
 import art_time_display from "../../utils/art_time_display.ts";
-
+import ShareComponent from "../ui/ShareComponent.tsx";
+import {AnimatePresence} from "motion/react";
 
 type DetailLeftSideProps = {
     data: IArtwork
 }
 
+
 const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JSX.Element => {
+
+
+    const [showShare, setShowShare] = useState<boolean>(false);
+
+
     return <div className={"detail_box_left_side"}>
+
+        <AnimatePresence>
+            {showShare && <ShareComponent showShare={showShare} setShowShare={setShowShare}/>}
+        </AnimatePresence>
+
 
         <div className={"icons_area"}>
 
-            <div data-tooltip-id={"share"} data-tooltip-content={"Share"} className={"detail_icon_wrapper"}>
+            <div data-tooltip-id={"share"} data-tooltip-content={"Share"} className={"detail_icon_wrapper"}
+                 onClick={(): void => {
+                     setShowShare(true);
+                 }}>
                 <IoShareSocialSharp className={"icon"}/>
             </div>
 

@@ -1,56 +1,33 @@
-import {FC, JSX, MutableRefObject, useRef,} from "react";
-import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
+import {FC, JSX} from "react";
 import {statue_1, statue_bg} from "../../../utils/assets.tsx"
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-
-gsap.registerPlugin([ScrollTrigger, useGSAP]);
+import {motion} from "motion/react"
 
 const Hero: FC = (): JSX.Element => {
 
 
-    const img1: MutableRefObject<HTMLImageElement | null> = useRef(null);
-    const img2: MutableRefObject<HTMLImageElement | null> = useRef(null);
-
-
-    useGSAP((): void => {
-
-        gsap.fromTo(img1.current, {scale: 1, rotate: -45, y: 100}, {
-            scrollTrigger: {
-                trigger: ".statue",
-            },
-            rotate: 0,
-            y: 0,
-            scale: 1.5,
-            duration: 2,
-        });
-
-        gsap.fromTo(img2.current, {scale: 1}, {
-            scrollTrigger: {
-                trigger: ".statue",
-            },
-            scale: 2.5,
-            duration: 2,
-        });
-
-
-    })
-
     return <article className={"hero"}>
 
-        <div
-            className={"hero_title"}>
+        <motion.div initial={{opacity: 0, scale: 0.9}} viewport={{once: true}} whileInView={{opacity: 1, scale: 1}}
+                    transition={{delay: 0.3, duration: 0.5}}
+                    className={"hero_title"}>
             <span>Discover </span>
             <span>the </span>
             <span>new things.</span>
-        </div>
+        </motion.div>
 
         <figure
             className={"statue"}>
-            <img src={statue_1} alt={"statue"} ref={img1}/>
-            <img src={statue_bg} alt={"statue_bg"} ref={img2} className={"statue_bg"}/>
+            <motion.img initial={{scale: 1, rotate: -45, y: 100}} whileInView={{
+                rotate: 0,
+                y: 0,
+                scale: 1.5,
+            }} transition={{duration: 1.5, ease: "easeInOut"}} viewport={{once: true}} src={statue_1}
+                        alt={"statue"}/>
+            <motion.img initial={{scale: 1}} whileInView={{
+                scale: 2.5,
+            }} transition={{duration: 1.5, ease: "easeInOut"}} viewport={{once: true}} src={statue_bg} alt={"statue_bg"}
+                        className={"statue_bg"}/>
         </figure>
-
 
     </article>
 }
