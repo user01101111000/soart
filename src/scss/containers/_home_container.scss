@@ -3,4 +3,16 @@
   min-height: 100vh;
 
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+
+  .banner_wrapper {
+    width: 100%;
+    padding: 2rem 5%;
+
+    overflow: hidden;
+  }
 }
