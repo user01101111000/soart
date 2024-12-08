@@ -3,8 +3,8 @@ import Hero from "../../components/home/Hero/Hero.tsx";
 import Features from "../../components/home/Features/Features.tsx";
 import Main from "../../components/home/Main/Main.tsx";
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
-import Banner from "../../components/ui/Banner.tsx";
 import ExploreForHome from "../../components/home/ExploreForHome/ExploreForHome.tsx";
+import BannerComponent from "../../components/home/BannerComponent/BannerComponent.tsx";
 
 
 const HomeContainer: FC = (): JSX.Element => {
@@ -13,13 +13,21 @@ const HomeContainer: FC = (): JSX.Element => {
         <Main/>
         <Hero/>
         <Features/>
-        <div className={"banner_wrapper"}>
-            <Banner title={"Join Our Community"} subtitle={"The best way to lend your support is to become a member."}
-                    button_text={"Become a member"}
-                    img_link={"https://cdn.pixabay.com/photo/2019/03/03/20/23/background-4032775_1280.png"}/>
-        </div>
-
+        <BannerComponent data={{
+            title: "Join Our Community",
+            subtitle: "The best way to lend your support is to become a member.",
+            button_text: "Become a member",
+            img_link: "https://www.theartpostblog.com/wp-content/uploads/2021/11/img-Abstract-Art-Techniques.jpg"
+        }}/>
         <ExploreForHome/>
+
+        <BannerComponent data={{
+            title: "Join Our Community",
+            subtitle: "The best way to lend your support is to become a member.",
+            button_text: "Become a member",
+            img_link: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
+        }}/>
+
     </AnimatedSection>
 }
 

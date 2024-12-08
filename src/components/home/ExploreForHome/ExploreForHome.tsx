@@ -13,10 +13,13 @@ import {IArtwork} from "../../../types/data/data_types_2.ts";
 import {MdArrowBackIosNew} from "react-icons/md";
 import {MdArrowForwardIos} from "react-icons/md";
 import ExploreForHomeCard from "./ExploreForHomeCard.tsx";
+import {NavigateFunction, useNavigate} from "react-router-dom";
 
 
 const ExploreForHome: FC = (): JSX.Element => {
 
+
+    const navigate: NavigateFunction = useNavigate();
     const swiper_ref: MutableRefObject<SwiperRef | null> = useRef<SwiperRef | null>(null)
     const {data, isLoading, isError} = useGetManyArtworks();
 
@@ -31,57 +34,66 @@ const ExploreForHome: FC = (): JSX.Element => {
     </SwiperSlide>);
 
 
-    return <div className={"swiper_wrapper"}>
+    return <div className={"explore_for_home"}>
+        <div className={"explore_for_home_title"}>
+            <h1>Discover featured artworks</h1>
+            <p>To view more artworks, go to the <span onClick={(): void => {
+                navigate("/explore");
+            }}>Explore</span> page.</p>
+        </div>
 
-        <Swiper
-            ref={swiper_ref}
-            modules={[Navigation]}
-            navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}
-            loop
-            grabCursor
-            breakpoints={{
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 5,
-                },
-                600: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
+        <div className={"swiper_wrapper"}>
 
-                908: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
+            <Swiper
+                ref={swiper_ref}
+                modules={[Navigation]}
+                navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}
+                loop
+                grabCursor
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 5,
+                    },
+                    600: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
 
-                1300: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                },
+                    908: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
 
-            }}
-        >
-            {slides}
-        </Swiper>
+                    1300: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+
+                }}
+            >
+                {slides}
+            </Swiper>
 
 
-        <div className={"swiper_nav_buttons"}>
-            <div className={"swiper_icon_wrapper"} onClick={(): void => {
-                swiper_ref.current?.swiper.slidePrev();
+            <div className={"swiper_nav_buttons"}>
+                <div className={"swiper_icon_wrapper"} onClick={(): void => {
+                    swiper_ref.current?.swiper.slidePrev();
 
-            }}>
-                <MdArrowBackIosNew className={"swiper_icon"}/>
-            </div>
+                }}>
+                    <MdArrowBackIosNew className={"swiper_icon"}/>
+                </div>
 
-            <div className={"swiper_icon_wrapper"} onClick={(): void => {
-                swiper_ref.current?.swiper.slideNext();
+                <div className={"swiper_icon_wrapper"} onClick={(): void => {
+                    swiper_ref.current?.swiper.slideNext();
 
-            }}>
-                <MdArrowForwardIos className={"swiper_icon"}/>
+                }}>
+                    <MdArrowForwardIos className={"swiper_icon"}/>
+                </div>
+
             </div>
 
         </div>
-
     </div>
 }
 
