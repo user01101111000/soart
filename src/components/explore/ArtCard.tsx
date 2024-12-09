@@ -8,15 +8,15 @@ const ArtCard: FC<ArtCardProps> = (props: ArtCardProps): JSX.Element => {
 
 
     return <div className={"artwork_box"} onClick={(): void => {
-        navigate(`/explore/${props.artwork.id}`);
+        navigate(`/explore/${props?.artwork?.id}`);
     }}>
         <figure>
-            <img src={`https://www.artic.edu/iiif/2/${props.artwork.image_id}/full/843,/0/default.jpg`}
-                 alt={props.artwork.thumbnail.alt_text}
+            <img src={`https://www.artic.edu/iiif/2/${props?.artwork?.image_id}/full/843,/0/default.jpg`}
+                 alt={props?.artwork?.thumbnail?.alt_text}
                  loading={"lazy"}/>
         </figure>
-        <h1>{props.artwork.title}</h1>
-        <p>{props.artwork.artist_display}</p>
+        <h1>{props?.artwork?.title}</h1>
+        <p>{props?.artwork?.artist_display}</p>
     </div>
 }
 

@@ -19,18 +19,13 @@ const NavBar: FC = (): JSX.Element => {
             {showMenu && <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
                 <NavLink to={"/"} onClick={(): void => {
                     if (location.pathname == "/") window.scrollTo(0, 0);
-
                 }}>Home</NavLink>
                 <NavLink to={"/explore"} onClick={(): void => {
                     if (location.pathname == "/explore") window.scrollTo(0, 0);
-
                 }}>Explore</NavLink>
                 <NavLink to={"/about"} onClick={(): void => {
                     if (location.pathname == "/about") window.scrollTo(0, 0);
                 }}>About</NavLink>
-                <NavLink to={"/contact"} onClick={(): void => {
-                    if (location.pathname == "/contact") window.scrollTo(0, 0);
-                }}>Contact</NavLink>
 
                 <IoIosCloseCircleOutline className={"close_menu"} onClick={(): void => {
                     setShowMenu(false);

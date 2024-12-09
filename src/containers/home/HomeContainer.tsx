@@ -14,10 +14,11 @@ const HomeContainer: FC = (): JSX.Element => {
         <Hero/>
         <Features/>
         <BannerComponent data={{
-            title: "Join Our Community",
-            subtitle: "The best way to lend your support is to become a member.",
-            button_text: "Become a member",
-            img_link: "https://www.theartpostblog.com/wp-content/uploads/2021/11/img-Abstract-Art-Techniques.jpg"
+            title: "Explore Our Collection",
+            subtitle: "Come to Explore section to see the new artworks every day.",
+            button_text: "Explore now",
+            img_link: "https://www.theartpostblog.com/wp-content/uploads/2021/11/img-Abstract-Art-Techniques.jpg",
+            page_name: "/explore"
         }}/>
         <ExploreForHome/>
 
@@ -25,8 +26,12 @@ const HomeContainer: FC = (): JSX.Element => {
             title: "Join Our Community",
             subtitle: "The best way to lend your support is to become a member.",
             button_text: "Become a member",
-            img_link: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
+            img_link: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
+            page_name: "/explore"
         }}/>
+
+
+        <div className={"inf_spo"}></div>
 
     </AnimatedSection>
 }

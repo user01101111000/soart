@@ -1,17 +1,26 @@
 import {FC, JSX} from "react";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import Logo from "../../../components/ui/Logo.tsx";
+import {Location, NavLink, useLocation} from "react-router-dom";
 
 const Footer: FC = (): JSX.Element => {
+
+    const location: Location = useLocation();
+
     return <footer>
 
         <Logo/>
 
         <div className={"footer_menu"}>
-            <a target={"_blank"} href={""}>Art</a>
-            <a target={"_blank"} href={""}>Artists</a>
-            <a target={"_blank"} href={""}>Source</a>
-            <a target={"_blank"} href={""}>Contact</a>
+            <NavLink to={"/"} onClick={(): void => {
+                if (location.pathname == "/") window.scrollTo(0, 0);
+            }}>Home</NavLink>
+            <NavLink to={"/explore"} onClick={(): void => {
+                if (location.pathname == "/explore") window.scrollTo(0, 0);
+            }}>Explore</NavLink>
+            <NavLink to={"/about"} onClick={(): void => {
+                if (location.pathname == "/about") window.scrollTo(0, 0);
+            }}>About</NavLink>
         </div>
 
 

@@ -1,8 +1,11 @@
 import {FC, JSX} from "react";
 import {BannerProps} from "../../types/component/component_types.ts";
-
+import {NavigateFunction, useNavigate} from "react-router-dom";
 
 const Banner: FC<BannerProps> = (props: BannerProps): JSX.Element => {
+
+    const navigate: NavigateFunction = useNavigate();
+
     return <div className={"banner"}>
 
         <img src={props.img_link} alt="banner" loading={"lazy"}/>
@@ -12,7 +15,9 @@ const Banner: FC<BannerProps> = (props: BannerProps): JSX.Element => {
             <p>{props.subtitle}</p>
         </div>
 
-        <button>{props.button_text}</button>
+        <button onClick={(): void => {
+            navigate(props.page_name);
+        }}>{props.button_text}</button>
 
     </div>
 }

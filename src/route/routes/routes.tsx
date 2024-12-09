@@ -4,6 +4,7 @@ import Home from "../../pages/home/Home.tsx";
 import Explore from "../../pages/explore/Explore.tsx";
 import NotFound from "../../pages/not_found/NotFound.tsx";
 import Detail from "../../pages/detail/Detail.tsx";
+import About from "../../pages/about/About.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -21,6 +22,10 @@ const routes: RouteObject[] = [
             {
                 path: "explore/:id",
                 element: <Detail/>
+            },
+            {
+                path: "about",
+                element: <About/>
             },
             {
                 path: "*",

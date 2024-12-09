@@ -3,11 +3,12 @@ import {DetailRightSideProps} from "../../types/component/component_types.ts";
 
 const DetailRightSide: FC<DetailRightSideProps> = (props: DetailRightSideProps): JSX.Element => {
     return <div className={"detail_box_right_side"}>
-        {props.data?.data.short_description && <>
-            <p className={"short_description"}>{props.data?.data.short_description}</p>
+        {props?.data?.data?.short_description && <>
+            <p className={"short_description"}
+               dangerouslySetInnerHTML={{__html: props?.data?.data?.short_description}}/>
             <hr/>
         </>}
-        <p className={"license_text"}>{props.data?.info.license_text}</p>
+        <p className={"license_text"}>{props?.data?.info?.license_text}</p>
     </div>
 }
 

@@ -12,4 +12,3 @@ createRoot(document.getElementById('root')!).render(
 )
 
 // https://dribbble.com/shots/23841881-Artist-portfolio-Website
-//https://dribbble.com/shots/25139444-Website-Design-for-Artists

@@ -19,7 +19,8 @@ export type BannerProps = {
     title: string,
     subtitle: string,
     button_text: string,
-    img_link: string
+    img_link: string,
+    page_name: string
 }
 
 export type ShareComponentProps = {

@@ -56,74 +56,78 @@ const ShareComponent: FC<ShareComponentProps> = (props: ShareComponentProps): JS
 
             </div>
 
-            <h1 className={"share_title"}>Share it with your friends.</h1>
+
+            <div className={"share_box_content"}>
+                <h1 className={"share_title"}>Share it with your friends.</h1>
 
 
-            <div className={"share_icons_area"}>
-                <WhatsappShareButton url={window.location.href}>
-                    <WhatsappIcon round size={40}/>
-                </WhatsappShareButton>
+                <div className={"share_icons_area"}>
+                    <WhatsappShareButton url={window.location.href}>
+                        <WhatsappIcon round size={40}/>
+                    </WhatsappShareButton>
 
-                <LinkedinShareButton url={window.location.href}>
-                    <LinkedinIcon round size={40}/>
-                </LinkedinShareButton>
+                    <LinkedinShareButton url={window.location.href}>
+                        <LinkedinIcon round size={40}/>
+                    </LinkedinShareButton>
 
-                <InstapaperShareButton url={window.location.href}>
-                    <InstapaperIcon round size={40}/>
-                </InstapaperShareButton>
+                    <InstapaperShareButton url={window.location.href}>
+                        <InstapaperIcon round size={40}/>
+                    </InstapaperShareButton>
 
-                <TwitterShareButton url={window.location.href}>
-                    <TwitterIcon round size={40}/>
-                </TwitterShareButton>
+                    <TwitterShareButton url={window.location.href}>
+                        <TwitterIcon round size={40}/>
+                    </TwitterShareButton>
 
-                <FacebookShareButton url={window.location.href}>
-                    <FacebookIcon round size={40}/>
-                </FacebookShareButton>
+                    <FacebookShareButton url={window.location.href}>
+                        <FacebookIcon round size={40}/>
+                    </FacebookShareButton>
 
-                <EmailShareButton url={window.location.href}>
-                    <EmailIcon round size={40}/>
-                </EmailShareButton>
+                    <EmailShareButton url={window.location.href}>
+                        <EmailIcon round size={40}/>
+                    </EmailShareButton>
 
-                <TelegramShareButton url={window.location.href}>
-                    <TelegramIcon round size={40}/>
-                </TelegramShareButton>
-
-
-                <RedditShareButton url={window.location.href}>
-                    <RedditIcon round size={40}/>
-                </RedditShareButton>
-
-                <PinterestShareButton media={window.location.href} url={window.location.href}>
-                    <PinterestIcon round size={40}/>
-                </PinterestShareButton>
-
-                <VKShareButton url={window.location.href}>
-                    <VKIcon round size={40}/>
-                </VKShareButton>
-
-                <OKShareButton url={window.location.href}>
-                    <OKIcon round size={40}/>
-                </OKShareButton>
-
-                <TumblrShareButton url={window.location.href}>
-                    <TumblrIcon round size={40}/>
-                </TumblrShareButton>
-            </div>
+                    <TelegramShareButton url={window.location.href}>
+                        <TelegramIcon round size={40}/>
+                    </TelegramShareButton>
 
 
-            <div className={"url_area"}>
+                    <RedditShareButton url={window.location.href}>
+                        <RedditIcon round size={40}/>
+                    </RedditShareButton>
 
-                <div className={"url_text"}>
-                    {window.location.href}
+                    <PinterestShareButton media={window.location.href} url={window.location.href}>
+                        <PinterestIcon round size={40}/>
+                    </PinterestShareButton>
+
+                    <VKShareButton url={window.location.href}>
+                        <VKIcon round size={40}/>
+                    </VKShareButton>
+
+                    <OKShareButton url={window.location.href}>
+                        <OKIcon round size={40}/>
+                    </OKShareButton>
+
+                    <TumblrShareButton url={window.location.href}>
+                        <TumblrIcon round size={40}/>
+                    </TumblrShareButton>
                 </div>
 
-                <button onClick={(): void => {
-                    navigator.clipboard.writeText(window.location.href);
 
-                    props.setShowShare(false);
-                }}><LuLink/> Copy <LuLink/></button>
+                <div className={"url_area"}>
 
+                    <div className={"url_text"}>
+                        {window.location.href}
+                    </div>
+
+                    <button onClick={(): void => {
+                        navigator.clipboard.writeText(window.location.href);
+
+                        props.setShowShare(false);
+                    }}><LuLink/> Copy <LuLink/></button>
+
+                </div>
             </div>
+
 
         </motion.div>
 
