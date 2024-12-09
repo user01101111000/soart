@@ -23,11 +23,11 @@ const HomeContainer: FC = (): JSX.Element => {
         <ExploreForHome/>
 
         <BannerComponent data={{
-            title: "Join Our Community",
-            subtitle: "The best way to lend your support is to become a member.",
-            button_text: "Become a member",
+            title: "About soart",
+            subtitle: "What is soart ? Learn more about us.",
+            button_text: "About soart",
             img_link: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
-            page_name: "/explore"
+            page_name: "/about"
         }}/>
 
 

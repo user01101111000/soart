@@ -4,7 +4,7 @@ import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
 import Logo from "../../../components/ui/Logo.tsx";
 import {useLocation} from "react-router-dom";
-import {motion, AnimatePresence} from "motion/react"
+
 
 const NavBar: FC = (): JSX.Element => {
     const location: Location = useLocation();
@@ -15,24 +15,25 @@ const NavBar: FC = (): JSX.Element => {
         <Logo/>
 
 
-        <AnimatePresence>
-            {showMenu && <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-                <NavLink to={"/"} onClick={(): void => {
-                    if (location.pathname == "/") window.scrollTo(0, 0);
-                }}>Home</NavLink>
-                <NavLink to={"/explore"} onClick={(): void => {
-                    if (location.pathname == "/explore") window.scrollTo(0, 0);
-                }}>Explore</NavLink>
-                <NavLink to={"/about"} onClick={(): void => {
-                    if (location.pathname == "/about") window.scrollTo(0, 0);
-                }}>About</NavLink>
+        <nav className={showMenu ? "" : "show"}>
+            <NavLink to={"/"} onClick={(): void => {
+                if (location.pathname == "/") window.scrollTo(0, 0);
+                setShowMenu((p: boolean): boolean => !p);
+            }}>Home</NavLink>
+            <NavLink to={"/explore"} onClick={(): void => {
+                if (location.pathname == "/explore") window.scrollTo(0, 0);
+                setShowMenu((p: boolean): boolean => !p);
+            }}>Explore</NavLink>
+            <NavLink to={"/about"} onClick={(): void => {
+                if (location.pathname == "/about") window.scrollTo(0, 0);
+                setShowMenu((p: boolean): boolean => !p);
+            }}>About</NavLink>
 
-                <IoIosCloseCircleOutline className={"close_menu"} onClick={(): void => {
-                    setShowMenu(false);
-                }}/>
+            <IoIosCloseCircleOutline className={"close_menu"} onClick={(): void => {
+                setShowMenu((p: boolean): boolean => !p);
+            }}/>
 
-            </motion.nav>}
-        </AnimatePresence>
+        </nav>
 
 
         <div className={"nav_buttons"}>
@@ -45,7 +46,7 @@ const NavBar: FC = (): JSX.Element => {
             </a>
 
             <IoIosMenu className={"hamburger_menu"} onClick={(): void => {
-                setShowMenu(true);
+                setShowMenu((p: boolean): boolean => !p);
             }}/>
 
         </div>
