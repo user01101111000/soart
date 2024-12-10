@@ -68,9 +68,11 @@ const SearchBar: FC<SearchBarProps> = (props: SearchBarProps): JSX.Element => {
 
         }}/>
 
-        <div className={"list_wrapper"}>
-            {val && li_items && li_items?.length > 0 && <ul>{li_items}</ul>}
-        </div>
+        {val && li_items && li_items?.length > 0 && <div className={"list_wrapper"}>
+            <ul>{li_items}</ul>
+        </div>}
+
+
     </motion.div>
 }
 
