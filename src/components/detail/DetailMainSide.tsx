@@ -1,4 +1,4 @@
-import {FC, JSX} from "react";
+import {FC, JSX, SyntheticEvent} from "react";
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import {DetailMainSideProps} from "../../types/component/component_types.ts";
@@ -25,8 +25,13 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
             <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}>
                     <div className={"figure_2"}>
-                        <img src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
-                             alt={props?.data?.data?.thumbnail?.alt_text}/>
+                        <img src={props?.data?.data?.thumbnail?.lqip}
+                             data-src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
+                             alt={props?.data?.data?.thumbnail?.alt_text}
+                             onLoad={(e: SyntheticEvent<HTMLImageElement>): void => {
+                                 e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
+                             }}
+                        />
 
                         <div className={"figure_inner_wrapper"}>
                             Click to view

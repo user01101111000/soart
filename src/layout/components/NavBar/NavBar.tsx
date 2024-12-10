@@ -4,6 +4,7 @@ import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
 import Logo from "../../../components/ui/Logo.tsx";
 import {useLocation} from "react-router-dom";
+import {IoSearch} from "react-icons/io5";
 
 
 const NavBar: FC = (): JSX.Element => {
@@ -37,6 +38,26 @@ const NavBar: FC = (): JSX.Element => {
 
 
         <div className={"nav_buttons"}>
+
+            <IoSearch className={"search_icon"}/>
+
+            <div className={"search_container"}>
+                <input type="search" placeholder={"Search"}/>
+
+                <div className={"list_wrapper"}>
+                    <ul>
+                        <li>Search 1</li>
+                        <li>Search 2</li>
+                        <li>Search 3</li>
+                        <li>Search 4</li>
+                        <li>Search 5</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+
             <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">
                 <FaGithub/>
             </a>
