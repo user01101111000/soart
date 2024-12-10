@@ -14,6 +14,7 @@ import {MdArrowBackIosNew} from "react-icons/md";
 import {MdArrowForwardIos} from "react-icons/md";
 import ExploreForHomeCard from "./ExploreForHomeCard.tsx";
 import {NavigateFunction, useNavigate} from "react-router-dom";
+import {loading_2} from "../../../utils/assets.tsx";
 
 
 const ExploreForHome: FC = (): JSX.Element => {
@@ -24,7 +25,16 @@ const ExploreForHome: FC = (): JSX.Element => {
     const {data, isLoading, isError} = useGetManyArtworks();
 
 
-    if (isLoading) return <h1>loading...</h1>
+    if (isLoading) return <div style={{
+        width: "100%",
+        padding: "1rem 5%",
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }}>
+        <img src={loading_2} alt={"loading"} width={"18px"} height={"auto"}/>
+    </div>
 
     if (isError) return <h1>error</h1>
 
