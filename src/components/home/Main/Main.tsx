@@ -18,7 +18,7 @@ const Main: FC = (): JSX.Element => {
 
         {!isVideoLoaded &&
             <img src={blur_bg} alt={"blur"} loading={"lazy"} style={{
-                minHeight: "100vh",
+                height: "100%",
                 width: "100%",
                 zIndex: 1
             }}/>}
