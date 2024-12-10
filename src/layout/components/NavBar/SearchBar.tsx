@@ -2,6 +2,7 @@ import {ChangeEvent, Dispatch, FC, JSX, MutableRefObject, SetStateAction, useEff
 import useSearchArtworks from "../../../hooks/service/useSearchArtworks.tsx";
 import {Datum, ISearchArtworks} from "../../../types/data/data_types_3.ts";
 import {NavigateFunction, useNavigate} from "react-router-dom";
+import {motion} from "motion/react";
 
 type SearchBarProps = {
     setShowSearch: Dispatch<SetStateAction<boolean>>
@@ -52,8 +53,9 @@ const SearchBar: FC<SearchBarProps> = (props: SearchBarProps): JSX.Element => {
     </li>)
 
 
-    return <div
-        className={"search_container"}>
+    return <motion.div initial={{opacity: 0, scale: 0.9}} animate={{opacity: 1, scale: 1}}
+                       exit={{opacity: 0, scale: 0.9}}
+                       className={"search_container"}>
         <input ref={inp_ref} type="search" placeholder={"Search"} value={val}
                onChange={(e: ChangeEvent<HTMLInputElement>): void => {
                    setValue(e.currentTarget.value);
@@ -69,7 +71,7 @@ const SearchBar: FC<SearchBarProps> = (props: SearchBarProps): JSX.Element => {
         <div className={"list_wrapper"}>
             {val && li_items && li_items?.length > 0 && <ul>{li_items}</ul>}
         </div>
-    </div>
+    </motion.div>
 }
 
 export default SearchBar;

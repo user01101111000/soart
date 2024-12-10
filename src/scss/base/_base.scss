@@ -17,6 +17,24 @@
   background-color: #FAF9F6;;
 }
 
+.loading_container_main {
+
+  width: 100%;
+  height: 100vh;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background-color: #FAF9F6;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 header {
   width: 100%;
   background-color: #FAF9F6;
@@ -201,7 +219,13 @@ header {
 
 
             h1 {
-              flex: 1
+              flex: 1;
+              -webkit-line-clamp: 2;
+              line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
             }
 
 

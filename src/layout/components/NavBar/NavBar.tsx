@@ -6,6 +6,7 @@ import Logo from "../../../components/ui/Logo.tsx";
 import {useLocation} from "react-router-dom";
 import {IoSearch} from "react-icons/io5";
 import SearchBar from "./SearchBar.tsx";
+import {motion, AnimatePresence} from "motion/react";
 
 
 const NavBar: FC = (): JSX.Element => {
@@ -42,11 +43,15 @@ const NavBar: FC = (): JSX.Element => {
         <div className={"nav_buttons"}>
 
 
-            {showSearch ? <SearchBar setShowSearch={setShowSearch}/> : <div>
-                <IoSearch className={"search_icon"} onClick={(): void => {
-                    setShowSearch(true);
-                }}/>
-            </div>}
+            <AnimatePresence>
+                {showSearch ? <SearchBar setShowSearch={setShowSearch}/> :
+                    <motion.div initial={{opacity: 0, scale: 0.9}} animate={{opacity: 1, scale: 1}}
+                                exit={{opacity: 0, scale: 0.9}}>
+                        <IoSearch className={"search_icon"} onClick={(): void => {
+                            setShowSearch(true);
+                        }}/>
+                    </motion.div>}
+            </AnimatePresence>
 
 
             <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">

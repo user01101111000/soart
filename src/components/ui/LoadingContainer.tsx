@@ -1,21 +1,9 @@
 import {FC, JSX} from "react";
-import {loading_gif} from "../../utils/assets.tsx"
+import {loading_2} from "../../utils/assets.tsx"
 
 const LoadingContainer: FC = (): JSX.Element => {
-    return <div className={"loading_container"}
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-
-                    width: "100%",
-                    height: "100vh",
-
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                }}>
-        <img src={loading_gif} alt="loading" loading={"lazy"} width={"500px"} height={"auto"}/>
+    return <div className={"loading_container_main"}>
+        <img src={loading_2} alt="loading" loading={"lazy"} width={"12px"} height={"auto"}/>
     </div>
 
 }
