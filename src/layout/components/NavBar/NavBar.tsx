@@ -1,4 +1,4 @@
-import {FC, JSX, useState} from "react";
+import {FC, JSX, MutableRefObject, useRef, useState} from "react";
 import {Location, NavLink} from "react-router-dom";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
@@ -10,6 +10,11 @@ import {IoSearch} from "react-icons/io5";
 const NavBar: FC = (): JSX.Element => {
     const location: Location = useLocation();
     const [showMenu, setShowMenu] = useState<boolean>(true);
+    const [showSearch, setShowSearch] = useState<boolean>(false);
+
+    const inp_ref: MutableRefObject<HTMLInputElement | null> = useRef<HTMLInputElement | null>(null)
+
+    console.log("yes")
 
 
     return <header>
@@ -39,10 +44,12 @@ const NavBar: FC = (): JSX.Element => {
 
         <div className={"nav_buttons"}>
 
-            <IoSearch className={"search_icon"}/>
 
-            <div className={"search_container"}>
-                <input type="search" placeholder={"Search"}/>
+            {showSearch ? <div
+                className={"search_container"}>
+                <input ref={inp_ref} type="search" placeholder={"Search"} onBlur={(): void => {
+                    setShowSearch(false)
+                }}/>
 
                 <div className={"list_wrapper"}>
                     <ul>
@@ -51,11 +58,22 @@ const NavBar: FC = (): JSX.Element => {
                         <li>Search 3</li>
                         <li>Search 4</li>
                         <li>Search 5</li>
+                        <li>Search 1</li>
+                        <li>Search 2</li>
+                        <li>Search 3</li>
+                        <li>Search 4</li>
+                        <li>Search 5</li>
                     </ul>
                 </div>
+            </div> : <div>
+                <IoSearch className={"search_icon"} onClick={(): void => {
+                    setShowSearch(true);
 
-
-            </div>
+                    setTimeout((): void => {
+                        inp_ref.current?.focus();
+                    }, 200)
+                }}/>
+            </div>}
 
 
             <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">
