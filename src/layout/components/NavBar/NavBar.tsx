@@ -1,20 +1,17 @@
-import {FC, JSX, MutableRefObject, useRef, useState} from "react";
+import {FC, JSX, useState} from "react";
 import {Location, NavLink} from "react-router-dom";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
 import Logo from "../../../components/ui/Logo.tsx";
 import {useLocation} from "react-router-dom";
 import {IoSearch} from "react-icons/io5";
+import SearchBar from "./SearchBar.tsx";
 
 
 const NavBar: FC = (): JSX.Element => {
     const location: Location = useLocation();
     const [showMenu, setShowMenu] = useState<boolean>(true);
     const [showSearch, setShowSearch] = useState<boolean>(false);
-
-    const inp_ref: MutableRefObject<HTMLInputElement | null> = useRef<HTMLInputElement | null>(null)
-
-    console.log("yes")
 
 
     return <header>
@@ -45,33 +42,9 @@ const NavBar: FC = (): JSX.Element => {
         <div className={"nav_buttons"}>
 
 
-            {showSearch ? <div
-                className={"search_container"}>
-                <input ref={inp_ref} type="search" placeholder={"Search"} onBlur={(): void => {
-                    setShowSearch(false)
-                }}/>
-
-                <div className={"list_wrapper"}>
-                    <ul>
-                        <li>Search 1</li>
-                        <li>Search 2</li>
-                        <li>Search 3</li>
-                        <li>Search 4</li>
-                        <li>Search 5</li>
-                        <li>Search 1</li>
-                        <li>Search 2</li>
-                        <li>Search 3</li>
-                        <li>Search 4</li>
-                        <li>Search 5</li>
-                    </ul>
-                </div>
-            </div> : <div>
+            {showSearch ? <SearchBar setShowSearch={setShowSearch}/> : <div>
                 <IoSearch className={"search_icon"} onClick={(): void => {
                     setShowSearch(true);
-
-                    setTimeout((): void => {
-                        inp_ref.current?.focus();
-                    }, 200)
                 }}/>
             </div>}
 
