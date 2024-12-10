@@ -1,15 +1,30 @@
-import {FC, JSX} from "react";
-import {bg_video} from "../../../utils/assets.tsx";
+import {FC, JSX, useState} from "react";
+import {bg_video, blur_bg} from "../../../utils/assets.tsx";
 import {NavigateFunction, useNavigate} from "react-router-dom";
 
 const Main: FC = (): JSX.Element => {
+
+    const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
+
+
+    const handleVideoLoad: () => void = (): void => {
+        setIsVideoLoaded(true);
+    };
+
 
     const navigate: NavigateFunction = useNavigate();
 
     return <section className={"main_section"}>
 
-        <video autoPlay loop muted src={bg_video}></video>
+        {!isVideoLoaded &&
+            <img src={blur_bg} alt={"blur"} loading={"lazy"} style={{
+                minHeight: "100vh",
+                width: "100%",
+                zIndex: 1
+            }}/>}
 
+
+        <video autoPlay loop muted src={bg_video} onCanPlayThrough={handleVideoLoad}></video>
         <div className={"main_section_content"}>
 
             <h1>It's a magnificent day to discover new arts.</h1>
