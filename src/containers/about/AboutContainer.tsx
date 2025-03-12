@@ -18,13 +18,13 @@ const AboutContainer: FC = (): JSX.Element => {
             <div className={"about_content_links"}>
 
 
-                <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">
-                    <FaGithub/>
-                </a>
+            <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer" title="Visit github repository">
+                <FaGithub />
+            </a>
 
-                <a href="https://www.linkedin.com/in/elnurguliyev/" target="_blank" rel="noreferrer">
-                    <FaLinkedin/>
-                </a>
+            <a href="https://www.linkedin.com/in/elnurguliyev/" target="_blank" rel="noreferrer" title="Visit linkedin profile">
+                <FaLinkedin />
+            </a>
 
 
             </div>

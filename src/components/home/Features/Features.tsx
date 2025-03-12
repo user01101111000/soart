@@ -12,7 +12,7 @@ const Features: FC = (): JSX.Element => {
         className={"feature_box"}>
         <p className="feature_title">{x.title}</p>
         <p className="feature_content">{x.content}</p>
-        <a href={x.link} target={"_blank"}>Learn More</a>
+        <a href={x.link} target={"_blank"}>Read about {x.title.toLowerCase()}</a>
     </div>)
 
 

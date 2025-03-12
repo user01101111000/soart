@@ -1,12 +1,12 @@
-import {FC, JSX, useState} from "react";
-import {Location, NavLink} from "react-router-dom";
-import {FaGithub, FaLinkedin} from "react-icons/fa";
-import {IoIosMenu, IoIosCloseCircleOutline} from "react-icons/io";
+import { FC, JSX, useState } from "react";
+import { Location, NavLink } from "react-router-dom";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoIosMenu, IoIosCloseCircleOutline } from "react-icons/io";
 import Logo from "../../../components/ui/Logo.tsx";
-import {useLocation} from "react-router-dom";
-import {IoSearch} from "react-icons/io5";
+import { useLocation } from "react-router-dom";
+import { IoSearch } from "react-icons/io5";
 import SearchBar from "./SearchBar.tsx";
-import {motion, AnimatePresence} from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 
 const NavBar: FC = (): JSX.Element => {
@@ -16,7 +16,7 @@ const NavBar: FC = (): JSX.Element => {
 
 
     return <header>
-        <Logo/>
+        <Logo />
 
 
         <nav className={showMenu ? "" : "show"}>
@@ -35,7 +35,7 @@ const NavBar: FC = (): JSX.Element => {
 
             <IoIosCloseCircleOutline className={"close_menu"} onClick={(): void => {
                 setShowMenu((p: boolean): boolean => !p);
-            }}/>
+            }} />
 
         </nav>
 
@@ -44,27 +44,27 @@ const NavBar: FC = (): JSX.Element => {
 
 
             <AnimatePresence>
-                {showSearch ? <SearchBar setShowSearch={setShowSearch}/> :
-                    <motion.div initial={{opacity: 0, scale: 0.9}} animate={{opacity: 1, scale: 1}}
-                                exit={{opacity: 0, scale: 0.9}}>
+                {showSearch ? <SearchBar setShowSearch={setShowSearch} /> :
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}>
                         <IoSearch className={"search_icon"} onClick={(): void => {
                             setShowSearch(true);
-                        }}/>
+                        }} />
                     </motion.div>}
             </AnimatePresence>
 
 
-            <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer">
-                <FaGithub/>
+            <a href="https://github.com/user01101111000/soart" target="_blank" rel="noreferrer" title="Visit github repository">
+                <FaGithub />
             </a>
 
-            <a href="https://www.linkedin.com/in/elnurguliyev/" target="_blank" rel="noreferrer">
-                <FaLinkedin/>
+            <a href="https://www.linkedin.com/in/elnurguliyev/" target="_blank" rel="noreferrer" title="Visit linkedin profile">
+                <FaLinkedin />
             </a>
 
-            <IoIosMenu className={"hamburger_menu"} onClick={(): void => {
+            <IoIosMenu title="Hamburgrer icon" className={"hamburger_menu"} onClick={(): void => {
                 setShowMenu((p: boolean): boolean => !p);
-            }}/>
+            }} />
 
         </div>
     </header>

@@ -11,8 +11,11 @@ const HomeContainer: FC = (): JSX.Element => {
 
     return <AnimatedSection class_name={"home_container"}>
         <Main/>
+       
         <Hero/>
+       
         <Features/>
+       
         <BannerComponent data={{
             title: "Explore Our Collection",
             subtitle: "Come to Explore section to see the new artworks every day.",
@@ -20,6 +23,7 @@ const HomeContainer: FC = (): JSX.Element => {
             img_link: "https://www.theartpostblog.com/wp-content/uploads/2021/11/img-Abstract-Art-Techniques.jpg",
             page_name: "/explore"
         }}/>
+
         <ExploreForHome/>
 
         <BannerComponent data={{
@@ -29,9 +33,6 @@ const HomeContainer: FC = (): JSX.Element => {
             img_link: "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
             page_name: "/about"
         }}/>
-
-
-        <div className={"inf_spo"}></div>
 
     </AnimatedSection>
 }
