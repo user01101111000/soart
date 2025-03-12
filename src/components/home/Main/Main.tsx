@@ -28,6 +28,7 @@ const Main: FC = (): JSX.Element => {
         <video preload="auto" autoPlay loop muted onCanPlayThrough={handleVideoLoad}>
             <source src={bg_video} />
         </video>
+        
         <div className={"main_section_content"}>
 
             <h1>It's a magnificent day to discover new arts.</h1>

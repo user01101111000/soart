@@ -1,5 +1,5 @@
 import {FC, JSX} from "react";
-import features_data from "../../../service/features/features_data.ts";
+import features_data from "../../../constants/features_data.ts";
 
 const Features: FC = (): JSX.Element => {
 
