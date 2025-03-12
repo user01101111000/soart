@@ -47,7 +47,7 @@ const SearchBar: FC<SearchBarProps> = (props: SearchBarProps): JSX.Element => {
             }}/>
         </figure>
 
-        <h1>{x.title}</h1>
+        <p>{x.title}</p>
 
 
     </li>)

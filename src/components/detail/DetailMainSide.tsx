@@ -1,16 +1,16 @@
-import {FC, JSX, SyntheticEvent} from "react";
-import {PhotoProvider, PhotoView} from 'react-photo-view';
+import { FC, JSX, SyntheticEvent } from "react";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import {DetailMainSideProps} from "../../types/component/component_types.ts";
+import { DetailMainSideProps } from "../../types/component/component_types.ts";
 
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
 
     const pub_hist_elements: JSX.Element[] = props?.data?.data?.publication_history ? props?.data?.data?.publication_history.split("\n\n").map((el: string, index: number): JSX.Element =>
-        <li key={index} dangerouslySetInnerHTML={{__html: el}}/>) : [];
+        <li key={index} dangerouslySetInnerHTML={{ __html: el }} />) : [];
 
     const exh_hist_elements: JSX.Element[] = props?.data?.data?.exhibition_history ? props?.data?.data?.exhibition_history.split("\n\n").map((el: string, index: number): JSX.Element =>
-        <li key={index} dangerouslySetInnerHTML={{__html: el}}/>) : [];
+        <li key={index} dangerouslySetInnerHTML={{ __html: el }} />) : [];
 
 
     const multimedia_res: JSX.Element[] = props?.data?.data?.sound_ids ? props?.data?.data?.sound_ids?.map((el: string, index: number): JSX.Element =>
@@ -25,12 +25,16 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
             <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}>
                     <div className={"figure_2"}>
-                        <img src={props?.data?.data?.thumbnail?.lqip}
-                             data-src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
-                             alt={props?.data?.data?.thumbnail?.alt_text}
-                             onLoad={(e: SyntheticEvent<HTMLImageElement>): void => {
-                                 e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
-                             }}
+                        <img
+                            title={props?.data?.data?.title}
+                            loading="eager"
+                            height={"auto"} width={"auto"}
+                            src={props?.data?.data?.thumbnail?.lqip}
+                            data-src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
+                            alt={props?.data?.data?.thumbnail?.alt_text}
+                            onLoad={(e: SyntheticEvent<HTMLImageElement>): void => {
+                                e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
+                            }}
                         />
 
                         <div className={"figure_inner_wrapper"}>
@@ -48,7 +52,7 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
 
 
         {props?.data?.data?.description && <div className={"art_description"}
-                                                dangerouslySetInnerHTML={{__html: props?.data?.data?.description}}/>}
+            dangerouslySetInnerHTML={{ __html: props?.data?.data?.description }} />}
 
 
         {pub_hist_elements?.length > 0 && <details>
@@ -70,7 +74,7 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                 <summary>Provenance</summary>
 
                 <ul>
-                    <li dangerouslySetInnerHTML={{__html: props?.data?.data?.provenance_text}}/>
+                    <li dangerouslySetInnerHTML={{ __html: props?.data?.data?.provenance_text }} />
                 </ul>
             </details>}
 
@@ -89,7 +93,7 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         </details>}
 
 
-        <hr/>
+        <hr />
 
         <div className={"art_description end_of_art"}>Object information is a work in progress and may be updated as new
             research findings emerge. To help

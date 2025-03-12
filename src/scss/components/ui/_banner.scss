@@ -26,11 +26,11 @@
       gap: 1rem;
       color: white;
 
-      h1 {
+      .banner_title {
         font-size: clamp(1.5rem, 4vw, 2.5rem);
       }
 
-      p {
+      .banner_subtitle {
         font-size: clamp(1rem, 3vw, 1.5rem);
       }
     }

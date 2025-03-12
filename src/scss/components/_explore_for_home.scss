@@ -16,13 +16,13 @@
     gap: 0.5rem;
 
 
-    h1 {
+    .explore_title {
       font-size: clamp(2rem, 3vw, 3rem);
       line-height: 1.2;
       font-weight: 300;
     }
 
-    p {
+    .explore_desc {
       font-size: clamp(1rem, 2vw, 1.2rem);
       line-height: 1.2;
       font-weight: 300;
@@ -51,7 +51,7 @@
 
       padding: 0 1rem 1rem;
 
-      display: grid;;
+      display: grid;
 
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 400px 1fr auto;
@@ -64,18 +64,18 @@
         text-align: center;
         gap: 0.5rem;
 
-        h2 {
+        .art_name {
           font-size: clamp(1.2rem, 3vw, 1.5rem);
           line-height: 1.2;
           font-weight: 500;
         }
 
-        p {
+        .art_loc {
           font-size: 1rem;
         }
       }
 
-      h1 {
+      .artist_title {
         margin: auto;
         text-align: center;
         font-size: clamp(2rem, 3vw, 2rem);
@@ -162,7 +162,8 @@
         height: 50px;
 
         .swiper_icon {
-          font-size: 1.5rem;;
+          font-size: 1.5rem;
+          ;
 
         }
       }

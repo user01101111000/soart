@@ -42,7 +42,7 @@ const Footer: FC = (): JSX.Element => {
 
 
         <div className={"copyright_content"}>
-            <h1>&copy; {new Date().getFullYear()} soart. All rights reserved</h1>
+            <p>&copy; {new Date().getFullYear()} soart. All rights reserved</p>
         </div>
 
     </footer>

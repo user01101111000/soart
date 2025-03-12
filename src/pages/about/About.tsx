@@ -8,7 +8,7 @@ const About: FC = (): JSX.Element => {
         <Helmet>
             <title>soart | About</title>
             <link rel="canonical" href={window.location.href} />
-            <meta name="description" content="Explore new artworks." />
+            <meta name="description" content="soart About page. This page is about soart. You can learn what soart is from here." />
         </Helmet>
 
         <AboutContainer />

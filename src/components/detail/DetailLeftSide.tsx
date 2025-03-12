@@ -54,20 +54,20 @@ const DetailLeftSide: FC<DetailLeftSideProps> = (props: DetailLeftSideProps): JS
         <div className={"detail_box_left_side_info"}>
 
             {props?.data?.data?.artist_title && <div className={"detail_box_left_side_info_item"}>
-                <LuPalette className={"info_item_icon"}/> <h1>{props?.data?.data?.artist_title}</h1>
+                <LuPalette className={"info_item_icon"}/> <p>{props?.data?.data?.artist_title}</p>
             </div>}
 
 
             {props?.data?.data?.place_of_origin && <div className={"detail_box_left_side_info_item"}>
-                <MdLocationOn className={"info_item_icon"}/> <h1>{props.data?.data?.place_of_origin}</h1>
+                <MdLocationOn className={"info_item_icon"}/> <p>{props.data?.data?.place_of_origin}</p>
             </div>}
 
             {props?.data?.data?.date_start &&
                 <div className={"detail_box_left_side_info_item"}><FaRegCalendarAlt className={"info_item_icon"}/>
-                    <h1>{art_time_display(props?.data?.data?.date_start, props?.data?.data?.date_end)}</h1></div>}
+                    <p>{art_time_display(props?.data?.data?.date_start, props?.data?.data?.date_end)}</p></div>}
 
             {props?.data?.data?.dimensions && <div className={"detail_box_left_side_info_item"}>
-                <RxDimensions className={"info_item_icon"}/> <h1>{props.data?.data?.dimensions}</h1></div>}
+                <RxDimensions className={"info_item_icon"}/> <p>{props.data?.data?.dimensions}</p></div>}
 
 
             {props?.data?.data?.category_titles?.length != 0 &&

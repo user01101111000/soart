@@ -76,13 +76,13 @@
         }
       }
 
-      h1 {
+      .artwork_title {
         font-size: clamp(1.1rem, 2vw, 1.3rem);
         font-weight: 500;
         line-height: 1.2;
       }
 
-      p {
+      .artwork_artist {
         font-size: 1rem;
         line-height: 1.4;
         font-weight: 300;

@@ -6,7 +6,6 @@ const Main: FC = (): JSX.Element => {
 
     const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
 
-
     const handleVideoLoad: () => void = (): void => {
         setIsVideoLoaded(true);
     };
@@ -17,7 +16,7 @@ const Main: FC = (): JSX.Element => {
     return <section className={"main_section"}>
 
         {!isVideoLoaded &&
-            <img src={blur_bg} alt={"blur"} loading={"lazy"} style={{
+            <img title="video blur" width={"20px"} height={"20px"} src={blur_bg} alt={"blur"} loading={"lazy"} style={{
                 position: "absolute",
                 inset: 0,
                 height: "100%",

@@ -10,14 +10,14 @@ const Features: FC = (): JSX.Element => {
     }, i: number): JSX.Element => <div
         key={i}
         className={"feature_box"}>
-        <h1>{x.title}</h1>
-        <p>{x.content}</p>
+        <p className="feature_title">{x.title}</p>
+        <p className="feature_content">{x.content}</p>
         <a href={x.link} target={"_blank"}>Learn More</a>
     </div>)
 
 
     return <section className={"features"}>
-        <h1 className={"features_title"}>You can see it here.</h1>
+        <p className={"features_title"}>You can see it here.</p>
 
         <div className={"features_container"}>
             {feature_items}

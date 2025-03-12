@@ -8,13 +8,11 @@ const Detail: FC = (): JSX.Element => {
         <Helmet>
             <title>soart | Detail</title>
             <link rel="canonical" href={window.location.href} />
-            <meta name="description" content="Explore new artworks." />
+            <meta name="description" content="Explore new artworks. This page is a detail page where you can find artwork's detail." />
         </Helmet>
 
         <DetailContainer />
     </>
-
-
 
 }
 

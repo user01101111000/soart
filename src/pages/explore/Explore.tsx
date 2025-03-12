@@ -8,7 +8,7 @@ const Explore: FC = (): JSX.Element => {
         <Helmet>
             <title>soart | Explore</title>
             <link rel="canonical" href={window.location.href} />
-            <meta name="description" content="Explore new artworks." />
+            <meta name="description" content="Explore new artworks. This page is a explore page where you can find artworks." />
         </Helmet>
 
         <ExploreContainer />
