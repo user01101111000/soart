@@ -1,5 +1,5 @@
 import { FC, JSX, useState } from "react";
-import { bg_video, blur_bg } from "../../../utils/assets.tsx";
+import { blur_bg } from "../../../utils/assets.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Main: FC = (): JSX.Element => {
@@ -9,7 +9,6 @@ const Main: FC = (): JSX.Element => {
     const handleVideoLoad: () => void = (): void => {
         setIsVideoLoaded(true);
     };
-
 
     const navigate: NavigateFunction = useNavigate();
 
@@ -26,9 +25,9 @@ const Main: FC = (): JSX.Element => {
 
 
         <video preload="auto" autoPlay loop muted onCanPlayThrough={handleVideoLoad}>
-            <source src={bg_video} />
+            <source src="/videos/bg_video.mp4" />
         </video>
-        
+
         <div className={"main_section_content"}>
 
             <h1>It's a magnificent day to discover new arts.</h1>

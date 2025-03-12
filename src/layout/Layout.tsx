@@ -1,7 +1,7 @@
 import {FC, JSX, Suspense, useEffect} from "react";
 import {Location, Outlet} from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar.tsx";
-import Footer from "./components/Footer/Footer.tsx";
+import NavBar from "../components/layout/NavBar/NavBar.tsx";
+import Footer from "../components/layout/Footer.tsx";
 import LoadingContainer from "../components/ui/LoadingContainer.tsx";
 import {useLocation} from "react-router-dom";
 

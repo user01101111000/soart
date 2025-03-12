@@ -10,8 +10,6 @@ import { Navigation } from "swiper/modules";
 import useGetManyArtworks from "../../../hooks/service/useGetManyArtworks.tsx";
 import { IArtwork } from "../../../types/data/data_types_2.ts";
 
-import { MdArrowBackIosNew } from "react-icons/md";
-import { MdArrowForwardIos } from "react-icons/md";
 import ExploreForHomeCard from "./ExploreForHomeCard.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { loading_2 } from "../../../utils/assets.tsx";
@@ -91,14 +89,19 @@ const ExploreForHome: FC = (): JSX.Element => {
                     swiper_ref.current?.swiper.slidePrev();
 
                 }}>
-                    <MdArrowBackIosNew className={"swiper_icon"} />
+                    <div className="swiper_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8L2 12L6 16" /><path d="M2 12H22" /></svg>
+                    </div>
                 </div>
 
                 <div className={"swiper_icon_wrapper"} onClick={(): void => {
                     swiper_ref.current?.swiper.slideNext();
 
                 }}>
-                    <MdArrowForwardIos className={"swiper_icon"} />
+                    <div className="swiper_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8L22 12L18 16" /><path d="M2 12H22" /></svg>
+                    </div>
+
                 </div>
 
             </div>
