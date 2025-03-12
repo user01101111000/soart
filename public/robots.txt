@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /home/
+Allow: /home/explore/
+Allow: /home/about/
+Allow: /explore/
+Allow: /about/
+Sitemap: https://soart-silk.vercel.app/sitemap.xml
