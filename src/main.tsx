@@ -4,11 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import router from "./route/router/router.tsx";
 import Providers from "./utils/Providers.tsx";
 
-
 createRoot(document.getElementById('root')!).render(
     <Providers>
         <RouterProvider router={router} />
     </Providers>
 )
-
-// https://dribbble.com/shots/23841881-Artist-portfolio-Website
