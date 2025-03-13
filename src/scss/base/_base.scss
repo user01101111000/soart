@@ -2,6 +2,7 @@
 
 :root {
   font-family: "Albert Sans", sans-serif;
+  font-display: swap;
 }
 
 
@@ -14,7 +15,7 @@
   grid-template-rows: auto 1fr auto;
 
 
-  background-color: #FAF9F6;;
+  background-color: #FAF9F6;
 }
 
 .loading_container_main {
@@ -396,4 +397,3 @@ footer {
 ::-webkit-scrollbar {
   width: 0;
 }
-
