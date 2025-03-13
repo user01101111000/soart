@@ -1,4 +1,4 @@
-import { FC, JSX, useState } from "react";
+import React, { FC, JSX, useState } from "react";
 import { blur_bg } from "../../../utils/assets.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
@@ -6,27 +6,42 @@ const Main: FC = (): JSX.Element => {
 
     const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
 
-    const handleVideoLoad: () => void = (): void => {
-        setIsVideoLoaded(true);
-    };
-
     const navigate: NavigateFunction = useNavigate();
+
+
+    React.useLayoutEffect((): () => void => {
+
+        const video: HTMLVideoElement = document.createElement('video');
+
+        video.oncanplaythrough = (): void => {
+            setIsVideoLoaded(true);
+        };
+
+        video.src = '/videos/bg_video.mp4';
+        video.load();
+
+        return (): void => {
+            video.src = '';
+        };
+    }, []);
+
 
     return <section className={"main_section"}>
 
-        {!isVideoLoaded &&
-            <img title="video blur" width={"20px"} height={"20px"} src={blur_bg} alt={"blur"} loading={"lazy"} style={{
-                position: "absolute",
-                inset: 0,
-                height: "100%",
-                width: "100%",
-                zIndex: 1
-            }} />}
+        {isVideoLoaded ? (
+            <video preload="auto" autoPlay loop muted>
+                <source src="/videos/bg_video.mp4" />
+            </video>
+        ) : <img title="video blur" width={"100%"} height={"100%"} src={blur_bg} alt={"blur_video"} loading="eager" style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+            objectFit: "cover",
+            objectPosition: "center"
+        }} />}
 
-
-        <video preload="auto" autoPlay loop muted onCanPlayThrough={handleVideoLoad}>
-            <source src="/videos/bg_video.mp4" />
-        </video>
 
         <div className={"main_section_content"}>
 
