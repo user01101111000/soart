@@ -3,6 +3,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { DetailMainSideProps } from "../../types/component/component_types.ts";
 import art_description from "../../constants/art_description.ts";
+import { image_not_found } from "../../utils/assets.tsx";
 
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
@@ -20,9 +21,11 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
 
 
+
     return <div className={"detail_box_main_side"}>
         <figure>
-            <PhotoProvider>
+
+            {props?.data?.data?.image_id ? <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}>
                     <div className={"figure_2"}>
                         <img
@@ -33,7 +36,13 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                             data-src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
                             alt={props?.data?.data?.thumbnail?.alt_text}
                             onLoad={(e: SyntheticEvent<HTMLImageElement>): void => {
-                                e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
+                                if (e.currentTarget.src !== e.currentTarget.dataset.src) {
+                                    e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
+                                    console.log("isledi");
+                                }
+                            }}
+                            onError={(): void => {
+                                console.log("error");
                             }}
                         />
 
@@ -42,7 +51,9 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                         </div>
                     </div>
                 </PhotoView>
-            </PhotoProvider>
+            </PhotoProvider> : <img src={image_not_found} alt="not found image" title="not found image" width={"auto"} height={"auto"} loading="eager" />}
+
+
 
 
             <figcaption>

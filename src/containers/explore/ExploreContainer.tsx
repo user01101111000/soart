@@ -1,9 +1,9 @@
-import {FC, JSX} from "react";
+import { FC, JSX } from "react";
 import useGetInfiniteArtworks from "../../hooks/service/useGetInfiniteArtworks.tsx";
-import {Datum, ResponseArtworks} from "../../types/data/data_types.ts";
+import { Datum, ResponseArtworks } from "../../types/data/data_types.ts";
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
 import ArtCard from "../../components/explore/ArtCard.tsx";
-import {loading_2} from "../../utils/assets.tsx";
+import { loading_2 } from "../../utils/assets.tsx";
 
 const ExploreContainer: FC = (): JSX.Element => {
 
@@ -19,9 +19,8 @@ const ExploreContainer: FC = (): JSX.Element => {
 
     const artworks: Datum[] | undefined = data?.pages.map((x: ResponseArtworks): Datum[] => x.data).flat();
 
-
     const artwork_components: JSX.Element[] | undefined = artworks?.map((artwork: Datum): JSX.Element => {
-        return <ArtCard key={artwork.id} artwork={artwork}/>
+        return <ArtCard key={artwork.id} artwork={artwork} />
     });
 
     return <AnimatedSection class_name={"explore_container"}>
@@ -33,7 +32,7 @@ const ExploreContainer: FC = (): JSX.Element => {
         </div>
 
         {status == "pending" ?
-            <div className={"loading_container"}><img src={loading_2} alt={"loading"} width={"18px"} height={"auto"}/>
+            <div className={"loading_container"}><img src={loading_2} alt={"loading"} width={"18px"} height={"auto"} />
             </div> : status == "error" ? <h1>Error</h1> :
                 <div className={"arts_container"}>{artwork_components}</div>}
 

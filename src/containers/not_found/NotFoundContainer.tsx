@@ -1,7 +1,6 @@
 import {FC, JSX} from "react";
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
-import {NavigateFunction, useNavigate} from "react-router-dom";
-
+import {NavigateFunction, useNavigate} from "react-router";
 
 const NotFoundContainer: FC = (): JSX.Element => {
 
