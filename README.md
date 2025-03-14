@@ -1,5 +1,5 @@
 <div align="center">
-<img src ="/src/assets/images/soart_text.png" alt="soart" width="30%" title='soart' />
+<img src ="public/images/soart_text.png" alt="soart" width="30%" title='soart' />
 </div>
 
 <br />
@@ -8,5 +8,5 @@ Examining works of art is a unique passion. This passion never fades. On "soart,
 
 <br />
 
-<div align="center"><img src ="/src/assets/images/soart_poster.png" alt="soart" width="100%" title='soart' />
+<div align="center"><img src ="public/images/soart_poster.png" alt="soart" width="100%" title='soart' />
 </div>
