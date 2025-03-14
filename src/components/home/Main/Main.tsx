@@ -1,5 +1,5 @@
 import React, { FC, JSX, useState } from "react";
-import { blur_bg } from "../../../utils/assets.tsx";
+import { blur_bg, bg_video } from "../../../utils/assets.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Main: FC = (): JSX.Element => {
@@ -17,7 +17,7 @@ const Main: FC = (): JSX.Element => {
             setIsVideoLoaded(true);
         };
 
-        video.src = '/videos/bg_video.mp4';
+        video.src = bg_video;
         video.load();
 
         return (): void => {
@@ -30,7 +30,7 @@ const Main: FC = (): JSX.Element => {
 
         {isVideoLoaded ? (
             <video preload="auto" autoPlay loop muted>
-                <source src="/videos/bg_video.mp4" />
+                <source src={bg_video} />
             </video>
         ) : <img title="video blur" width={"100%"} height={"100%"} src={blur_bg} alt={"blur_video"} loading="eager" style={{
             position: "absolute",
