@@ -1,5 +1,5 @@
 import {FC, JSX} from "react";
-import {NavigateFunction, useNavigate} from "react-router-dom";
+import {NavigateFunction, useNavigate} from "react-router";
 
 
 const Logo: FC = (): JSX.Element => {

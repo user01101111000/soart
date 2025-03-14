@@ -1,7 +1,7 @@
 import {ChangeEvent, Dispatch, FC, JSX, MutableRefObject, SetStateAction, useEffect, useRef, useState} from "react";
 import useSearchArtworks from "../../../hooks/service/useSearchArtworks.tsx";
 import {Datum, ISearchArtworks} from "../../../types/data/data_types_3.ts";
-import {NavigateFunction, useNavigate} from "react-router-dom";
+import {NavigateFunction, useNavigate} from "react-router";
 import {motion} from "motion/react";
 
 type SearchBarProps = {

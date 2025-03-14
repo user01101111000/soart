@@ -1,5 +1,5 @@
 import { FC, JSX, SyntheticEvent } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router";
 import { ExploreForHomeCardProps } from "../../../types/component/component_types.ts";
 
 

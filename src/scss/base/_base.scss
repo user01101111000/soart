@@ -151,9 +151,18 @@ header {
       }
 
       .close_menu {
-        display: block;
+        height: 40px;
+        width: 40px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 2px solid black;
+        border-radius: 50%;
+        
         position: absolute;
-        bottom: 10%;
+        bottom: 20%;
         left: 50%;
         transform: translateX(-50%);
 

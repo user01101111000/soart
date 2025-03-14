@@ -1,11 +1,10 @@
 import { FC, JSX, SyntheticEvent } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router";
 import { ArtCardProps } from "../../types/component/component_types.ts";
 
 const ArtCard: FC<ArtCardProps> = (props: ArtCardProps): JSX.Element => {
 
     const navigate: NavigateFunction = useNavigate();
-
 
     return <div className={"artwork_box"} onClick={(): void => {
         navigate(`/explore/${props?.artwork?.id}`);

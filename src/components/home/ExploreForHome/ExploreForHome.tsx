@@ -11,7 +11,7 @@ import useGetManyArtworks from "../../../hooks/service/useGetManyArtworks.tsx";
 import { IArtwork } from "../../../types/data/data_types_2.ts";
 
 import ExploreForHomeCard from "./ExploreForHomeCard.tsx";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router";
 import { loading_2 } from "../../../utils/assets.tsx";
 
 

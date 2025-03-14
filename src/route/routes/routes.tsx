@@ -1,4 +1,4 @@
-import { RouteObject } from "react-router-dom";
+import { RouteObject } from "react-router";
 import React, { FC, LazyExoticComponent, Suspense } from "react";
 import LoadingContainer from "../../components/ui/LoadingContainer.tsx";
 

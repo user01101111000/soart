@@ -1,6 +1,6 @@
 import {FC, JSX} from "react";
 import Logo from "../ui/Logo.tsx";
-import {Location, NavLink, useLocation} from "react-router-dom";
+import {Location, NavLink, useLocation} from "react-router";
 
 const Footer: FC = (): JSX.Element => {
 

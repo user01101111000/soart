@@ -1,6 +1,6 @@
 import { FC, JSX } from "react";
 import AnimatedSection from "../../components/ui/AnimatedSection.tsx";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import useGetOneArtwork from "../../hooks/service/useGetOneArtwork.tsx";
 import { loading_2 } from "../../utils/assets.tsx";
 import DetailLeftSide from "../../components/detail/DetailLeftSide.tsx";

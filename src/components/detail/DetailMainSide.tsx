@@ -2,6 +2,7 @@ import { FC, JSX, SyntheticEvent } from "react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { DetailMainSideProps } from "../../types/component/component_types.ts";
+import art_description from "../../constants/art_description.ts";
 
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
@@ -11,7 +12,6 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
 
     const exh_hist_elements: JSX.Element[] = props?.data?.data?.exhibition_history ? props?.data?.data?.exhibition_history.split("\n\n").map((el: string, index: number): JSX.Element =>
         <li key={index} dangerouslySetInnerHTML={{ __html: el }} />) : [];
-
 
     const multimedia_res: JSX.Element[] = props?.data?.data?.sound_ids ? props?.data?.data?.sound_ids?.map((el: string, index: number): JSX.Element =>
         <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
@@ -95,11 +95,7 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
 
         <hr />
 
-        <div className={"art_description end_of_art"}>Object information is a work in progress and may be updated as new
-            research findings emerge. To help
-            improve this record, please email collections@artic.edu. Information about image downloads and licensing is
-            available here.
-        </div>
+        <p className={"art_description end_of_art"}>{art_description.description}</p>
 
     </div>
 }

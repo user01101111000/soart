@@ -1,6 +1,6 @@
 import React from "react";
 import { blur_bg, bg_video } from "../../../utils/assets.tsx";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router";
 
 const Main: React.FC = (): React.JSX.Element => {
 

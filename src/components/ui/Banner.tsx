@@ -1,6 +1,6 @@
 import {FC, JSX} from "react";
 import {BannerProps} from "../../types/component/component_types.ts";
-import {NavigateFunction, useNavigate} from "react-router-dom";
+import {NavigateFunction, useNavigate} from "react-router";
 
 const Banner: FC<BannerProps> = (props: BannerProps): JSX.Element => {
 
