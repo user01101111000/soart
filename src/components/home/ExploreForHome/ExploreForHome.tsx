@@ -1,8 +1,8 @@
 import { FC, JSX, MutableRefObject, useRef } from "react";
 
-// @ts-ignore
+// @ts-expect-error: Swiper SCSS dosyaları TypeScript tarafından desteklenmiyor.
 import 'swiper/scss';
-// @ts-ignore
+// @ts-expect-error: Swiper navigation SCSS dosyaları TypeScript tarafından desteklenmiyor.
 import 'swiper/scss/navigation';
 
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";

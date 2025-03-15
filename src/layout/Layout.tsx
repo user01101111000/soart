@@ -1,22 +1,18 @@
-import { FC, JSX, Suspense, useEffect } from "react";
-import { Location, useLocation, Outlet } from "react-router";
+import React from "react";
+import { Outlet } from "react-router";
 import NavBar from "../components/layout/NavBar/NavBar.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import LoadingContainer from "../components/ui/LoadingContainer.tsx";
 
-const Layout: FC = (): JSX.Element => {
-    const location: Location = useLocation();
-
-    useEffect((): void => {
-        window.scrollTo(0, 0);
-    }, [location.pathname])
-
+const Layout: React.FC = (): React.JSX.Element => {
 
     return <main className={"layout"}>
         <NavBar />
-        <Suspense fallback={<LoadingContainer />}>
+
+        <React.Suspense fallback={<LoadingContainer />}>
             <Outlet />
-        </Suspense>
+        </React.Suspense>
+        
         <Footer />
     </main>
 }
