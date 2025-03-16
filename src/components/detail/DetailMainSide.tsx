@@ -1,15 +1,11 @@
-import React, { FC, JSX, SyntheticEvent } from "react";
+import { FC, JSX, SyntheticEvent } from "react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { DetailMainSideProps } from "../../types/component/component_types.ts";
 import art_description from "../../constants/art_description.ts";
 import { image_not_found } from "../../utils/assets.tsx";
 
-
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
-
-    const [isErrorImage, setIsErrorImage] = React.useState(false);
-
 
     const pub_hist_elements: JSX.Element[] = props?.data?.data?.publication_history ? props?.data?.data?.publication_history.split("\n\n").map((el: string, index: number): JSX.Element =>
         <li key={index} dangerouslySetInnerHTML={{ __html: el }} />) : [];
@@ -23,17 +19,16 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
     const educational_res: JSX.Element[] = props?.data?.data?.document_ids ? props?.data?.data?.document_ids?.map((el: string, index: number): JSX.Element =>
         <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
 
-
     return <div className={"detail_box_main_side"}>
         <figure>
 
-            {(props?.data?.data?.image_id && !isErrorImage) ? <PhotoProvider>
+            {(props?.data?.data?.image_id && !props.IsBadImage) ? <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}>
                     <div className={"figure_2"}>
                         <img
                             title={props?.data?.data?.title}
                             loading="eager"
-                            height={"auto"} width={"auto"}
+                            height={"auto"} width={"100%"}
                             src={props?.data?.data?.thumbnail?.lqip}
                             data-src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}
                             alt={props?.data?.data?.thumbnail?.alt_text}
@@ -41,9 +36,6 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                                 if (e.currentTarget.src !== e.currentTarget.dataset.src) {
                                     e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
                                 }
-                            }}
-                            onError={(): void => {
-                                setIsErrorImage(true);
                             }}
                         />
 
@@ -53,9 +45,6 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                     </div>
                 </PhotoView>
             </PhotoProvider> : <img src={image_not_found} alt="not found image" title="not found image" width={"auto"} height={"auto"} loading="eager" />}
-
-
-
 
             <figcaption>
                 {props?.data?.data?.title}, {props?.data?.data?.artist_display}

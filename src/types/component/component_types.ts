@@ -37,7 +37,8 @@ export type DetailLeftSideProps = {
 }
 
 export type DetailMainSideProps = {
-    data: IArtwork
+    data: IArtwork,
+    IsBadImage: boolean
 }
 export type DetailRightSideProps = {
     data: IArtwork
