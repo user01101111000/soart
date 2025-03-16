@@ -153,14 +153,14 @@ header {
       .close_menu {
         height: 40px;
         width: 40px;
-        
+
         display: flex;
         justify-content: center;
         align-items: center;
 
         border: 2px solid black;
         border-radius: 50%;
-        
+
         position: absolute;
         bottom: 20%;
         left: 50%;
@@ -405,4 +405,22 @@ footer {
 
 ::-webkit-scrollbar {
   width: 0;
+}
+
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  color: transparent;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #F5F5F5;
+    /* FROM Color 1 */
+  }
+
+  100% {
+    background-color: #E2E2E2;
+    /* TO Color 2 */
+  }
 }

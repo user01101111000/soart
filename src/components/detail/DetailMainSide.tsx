@@ -1,4 +1,4 @@
-import { FC, JSX, SyntheticEvent } from "react";
+import React, { FC, JSX, SyntheticEvent } from "react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { DetailMainSideProps } from "../../types/component/component_types.ts";
@@ -7,6 +7,9 @@ import { image_not_found } from "../../utils/assets.tsx";
 
 
 const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JSX.Element => {
+
+    const [isErrorImage, setIsErrorImage] = React.useState(false);
+
 
     const pub_hist_elements: JSX.Element[] = props?.data?.data?.publication_history ? props?.data?.data?.publication_history.split("\n\n").map((el: string, index: number): JSX.Element =>
         <li key={index} dangerouslySetInnerHTML={{ __html: el }} />) : [];
@@ -21,11 +24,10 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
         <a href={"https://www.artic.edu/assets/" + el} key={index}>Link {index + 1}</a>) : [];
 
 
-
     return <div className={"detail_box_main_side"}>
         <figure>
 
-            {props?.data?.data?.image_id ? <PhotoProvider>
+            {(props?.data?.data?.image_id && !isErrorImage) ? <PhotoProvider>
                 <PhotoView src={`https://www.artic.edu/iiif/2/${props?.data?.data?.image_id}/full/843,/0/default.jpg`}>
                     <div className={"figure_2"}>
                         <img
@@ -38,11 +40,10 @@ const DetailMainSide: FC<DetailMainSideProps> = (props: DetailMainSideProps): JS
                             onLoad={(e: SyntheticEvent<HTMLImageElement>): void => {
                                 if (e.currentTarget.src !== e.currentTarget.dataset.src) {
                                     e.currentTarget.src = e.currentTarget.dataset.src || e.currentTarget.src;
-                                    console.log("isledi");
                                 }
                             }}
                             onError={(): void => {
-                                console.log("error");
+                                setIsErrorImage(true);
                             }}
                         />
 
